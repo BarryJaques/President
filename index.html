@@ -13,9 +13,9 @@
             transform: translate(-50%, -50%);
             width: 300px;
             padding: 20px;
-            background-color: #ff00ff; /* Bright magenta background */
-            color: #00ff00; /* Bright green text */
-            border: 5px solid #0000ff; /* Bright blue border */
+            background-color: #ff00ff; 
+            color: #00ff00; 
+            border: 5px solid #0000ff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             z-index: 1000;
         }
@@ -83,7 +83,7 @@
         }
 
         function scheduleNextPopup() {
-            const randomTime = getRandomTime(10000, 600000);
+            const randomTime = getRandomTime(10000, 16000);
             setTimeout(showPopup, randomTime);
         }
 
