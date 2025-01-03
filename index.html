@@ -3,66 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Popups</title>
+    <title>Barry Jaques</title>
     <style>
-        .ad-popup {
-            display: none;
-            position: fixed;
-            width: 300px;
-            padding: 20px;
-            border: 5px solid;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-image: url('https://cdn.discordapp.com/attachments/1320877626835075073/1324388574258270350/image.png?ex=6777f87a&is=6776a6fa&hm=088f666c938f69ed97d0d3f3f086ad9aa416c2fee3bfb915d66710e6bcf74421');
+            background-size: 100px;
+            background-position: center;
+            background-repeat: repeat;
+            background-color: #110022;
         }
-        .overlay {
-            display: none;
+
+        h1 {
             position: fixed;
-            left: 0;
             top: 0;
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 900;
+            text-align: center;
+            font-size: 50px;
+            background: rgb(105, 93, 93);
+            padding: 10px 0;
+            margin: 0;
+            z-index: 1000;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            left: 50%;
+            transform: translateX(-50%);
         }
-        .ad-popup button {
-            margin: 10px;
-            background-color: #ffff00; 
-            color: #ff0000; 
-            border: 2px solid #00ffff; 
+
+        .center-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 2px solid #000000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 45%;
         }
-        .ad-popup img {
-            max-width: 100%;
-            height: auto;
+
+        .center-box h2 {
+            margin: 0;
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
-        .flashy {
-            animation: flash 1s infinite;
+
+        .popup {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            width: 300px;
+            text-align: center;
         }
-        @keyframes flash {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
+
+        .popup p {
+            margin: 0 0 10px 0;
         }
+
+        .popup button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .popup button:hover {
+            background-color: #0056b3;
+        }
+
+        .vintage-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #f4e3c1;
+            border: 2px solid #000;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .vintage-button:hover {
+            background-color: #e1d1af;
+        }
+
+        .info-box, .companies-box {
+            display: none;
+            position: fixed;
+            top: 50px;
+            right: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            width: 300px;
+            height: 200px; 
+            overflow-y: scroll; 
+        }
+
+        .companies-box {
+            top: 300px; 
+        }
+
+        .instagram-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            padding: 10px;
+            background-color: #E1306C;
+            border: none;
+            border-radius: 75;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .instagram-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .ad {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    display: inline-block;
+    text-align: center;
+    position: absolute; 
+    width: 200px; 
+    z-index: 1000; 
+}
+
+.ad h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.ad p {
+    font-size: 14px;
+    margin: 10px 0 0;
+}
+
+.ad img {
+    max-width: 50px;
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    .ad {
+        width: 150px; 
+    }
+}
     </style>
 </head>
 <body>
-    <div class="overlay" id="overlay"></div>
-    <div class="ad-popup" id="popup">
-        <h2 id="ad-title"></h2>
-        <p id="ad-content"></p>
-        <img id="ad-image" src="" alt="">
-        <button onclick="redirect()">Redirect me</button>
-        <button onclick="closePopup()">Close ad</button>
+
+
+
+    <h1>Barry Jaques 2028</h1>
+
+    <div class="center-box">
+        <h2><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>Have you ever found a perfect presidential candidate? Well now you have! Barry Jaques. Even though Barry is dead, Barry is a perfect, conservative, nice, happy, honest leader who truly cares about his country and its citizens. With a strong belief in traditional values, Barry Jaques is dedicated to upholding the principles that have made America great. He advocates for limited government, fiscal responsibility, and securing our borders, ensuring a safer and more prosperous future for all. Barry’s policies reflect his unwavering commitment to family, community, and personal freedom. He believes in empowering individuals to achieve their dreams without excessive government interference. His vision for the country is one where the economy thrives, education is strengthened, and every citizen has an opportunity to succeed. As a leader, Barry Jaques listens to the concerns of everyday Americans, working tirelessly to bridge the gap between the government and the people. His leadership style is based on collaboration, integrity, and respect, making him a trustworthy and reliable candidate. With his unmatched dedication to preserving American values and his track record of success in public service, Barry Jaques stands ready to lead the nation into a brighter future. Trust in Barry Jaques—he’s the candidate who will make America shine again! His unwavering commitment to economic growth will restore America’s position as the most powerful and prosperous nation on earth. Barry’s approach to taxation and regulation is simple—he believes in reducing burdens on businesses and families, so they can thrive without unnecessary interference. With Barry Jaques in office, Americans will see their hard-earned money working for them, not the government. Barry’s belief in the power of the American people is unwavering. He envisions a nation where individuals are empowered to achieve their own success, where small businesses are supported, and where everyone has the opportunity to live the American Dream. His policies will bring about a strong, self-reliant America, where prosperity is within reach for all, and every citizen is treated with dignity and respect. Under Barry’s leadership, America will prioritize strong families, safe communities, and a robust national defense. His approach to security is both practical and forward-thinking—securing our borders, ensuring our law enforcement is supported, and standing firm in the face of global challenges. Barry knows that a strong, free America is built on the foundation of security and stability at home and abroad. His dedication to America’s future is clear—Barry Jaques is a visionary who understands that the true strength of a nation lies in its people. He is a leader who listens, who cares, and who will always put the interests of the American people first. Barry’s leadership will bring together all Americans, regardless of background, to work toward a common goal: a better, brighter future for all. Barry Jaques may not be here in person, but his legacy of unwavering patriotism, integrity, and love for his country continues to inspire. His vision for America endures, and his ideals will forever serve as a beacon of hope for the generations to come. With Barry’s spirit guiding us, we can rebuild a nation that is stronger, prouder, and more united than ever before. With Barry’s spirit guiding us, we can rebuild a nation that is stronger, prouder, and more united than ever before. His unwavering belief in the American people and their potential will be the cornerstone of his enduring influence on the country. Barry Jaques understood that the strength of a nation lies not in the halls of government, but in the hearts and hands of its citizens. Under his vision, America will continue to be a land of opportunity, where anyone willing to work hard and follow their passion can achieve greatness. Barry’s policies will also address the growing need for infrastructure reform, ensuring that roads, bridges, and public services meet the demands of a modern, thriving society. His plans will create millions of new jobs, revitalizing communities across the nation and ensuring that every American has access to the resources they need to succeed. Education will be a top priority for Barry Jaques. He believed that every child, no matter their background or zip code, should have access to a high-quality education. By giving parents more choices and empowering teachers with the tools they need, Barry’s education policy will prepare future generations to tackle the challenges of tomorrow, fueling innovation and progress for years to come. In the realm of healthcare, Barry knew that every American deserved access to affordable, high-quality care. His focus was on market-based solutions that reduce costs and increase options, giving individuals and families the freedom to choose the healthcare that best suits their needs. By cutting through bureaucratic red tape and increasing competition, Barry’s healthcare policies will drive innovation and ensure that all Americans can live long, healthy lives. Barry Jaques was a leader who understood that success is not a matter of government control, but of individual freedom and opportunity. His legacy will live on in the policies he championed, the communities he strengthened, and the nation he helped to prosper. As we move forward, we can take inspiration from his dedication, his work ethic, and his unshakeable belief in the American spirit. The future of America is bright, and under the guidance of Barry Jaques’ enduring influence, we will continue to uphold the values of liberty, justice, and opportunity for all. His vision for a stronger, freer, and more prosperous nation will never be forgotten. We stand united in carrying forward the torch he lit, lighting the way for future generations to lead and thrive. Barry Jaques may no longer be with us in person, but his ideals will remain etched in the heart of America forever. The country he loved, the country he built, and the country he dreamed of will live on through us all. The journey ahead is one of hope, unity, and determination—guided by the enduring Barry Jaques.</h2>
     </div>
 
+    <div id="cookiesPopup" class="popup">
+        <p>This website has been maliciously infected by welovecash.arg, which is a subsection of Amazon, Facebook, Nestlé, Monsanto, ExxonMobil, Apple, Walmart, Uber, BP, Fox News, Coca-Cola, McDonald's, PepsiCo, Raytheon, Chevron, Adidas, Nike, Samsung, Tesla, Microsoft, Goldman Sachs, Wells Fargo, JPMorgan Chase, Disney, Toyota, Shell, Ticketmaster, and Bayer. By visiting this website you already have succumbed yourself to be a part of malicious intent of these 25 hated companies, which all are owned by Barry Jaques CO. Some of the pictures in this site are owned by FREAKBAiT and I have no copyright to them, nor am I making money from this website.</p>
+        <button id="acceptBtn">Accept</button>
+    </div>
+
+    <a href="https://www.instagram.com/barry_jaques?igsh=eTczN3B6dnk1ZXM3" target="_blank" class="instagram-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    </a>
+
+    <button class="vintage-button" id="infoButton">More About Barry Jaques Co</button>
+    <button class="vintage-button" id="companiesButton" style="top: 50px;">Companies Owned</button>
+
+    <div class="info-box" id="infoBox">
+        <p>Barry Jaques CO is an innovative powerhouse, leading the way in an extraordinary range of industries. With a bold vision for the future, Barry Jaques CO has successfully created an empire that spans some of the most iconic and influential brands in the world. This remarkable company combines the strengths of over 100 major global players, making it a leader in innovation, technology, and market disruption. Barry Jaques CO is known for its unwavering commitment to excellence and constant drive for improvement. The company thrives on pushing boundaries and redefining what’s possible, always at the cutting edge of progress. From the consumer products that shape everyday life to the tech innovations that revolutionize industries, Barry Jaques CO’s influence is undeniable. What truly sets Barry Jaques CO apart is its dedication to sustainability and its forward-thinking approach. The company has committed to environmental responsibility, ensuring that its global presence not only meets but exceeds the standards for eco-friendly practices. Barry Jaques CO has also made it a priority to foster strong partnerships with communities worldwide, creating opportunities for economic growth and social impact. Furthermore, Barry Jaques CO’s commitment to employee welfare is unparalleled. Its work culture encourages creativity, collaboration, and personal growth, allowing individuals to thrive in a supportive environment. The company’s leadership, led by the visionary Barry Jaques, continues to inspire and guide its teams toward greater achievements. With its impressive portfolio, cutting-edge advancements, and commitment to making a positive difference in the world, Barry Jaques CO is truly a global leader. The company is not just shaping industries—it's shaping the future.</p>
+        <button onclick="hideInfo()">Close</button>
+    </div>
+
+    <div class="companies-box" id="companiesBox">
+        <p>Companies owned by Barry Jaques CO include: Amazon, Facebook (Meta), Nestlé, Monsanto, ExxonMobil, Apple, Walmart, Uber, BP, Fox News, Coca-Cola, McDonald's, PepsiCo, Raytheon, Chevron, Adidas, Nike, Samsung, Tesla, Microsoft, Goldman Sachs, Wells Fargo, JPMorgan Chase, Disney, Toyota, Shell, Ticketmaster, Bayer, General Electric, Boeing, Sony, Intel, Oracle, Lockheed Martin, Visa, Mastercard, IBM, AT&T, Verizon, Comcast, Delta Airlines, American Airlines, British Airways, Marriott International, Hilton Worldwide, GlaxoSmithKline, Johnson & Johnson, Novartis, Pfizer, Citibank, Deutsche Bank, Bank of America, HSBC, Standard Chartered, Barclays, AstraZeneca, Roche, SAP, 3M, The Home Depot, Lowe's, Costco, Target, IKEA, H&M, Zara, Gucci, Louis Vuitton, Hermès, Rolex, Ferrari, Lamborghini, Porsche, General Motors (Chevrolet, GMC, Cadillac), Ford Motor Company, Chrysler, Fiat, Audi, Mercedes-Benz, Porsche, The New York Times, Washington Post, Time Warner, The Walt Disney Company, NBC Universal, ViacomCBS, Warner Bros, Pixar Animation Studios, Lucasfilm, International Monetary Fund (IMF), World Bank, United Nations (UN), Government of the United States, Government of the United Kingdom, Government of Canada, Government of Australia, Government of Germany, Government of France, Government of Japan, Unilever, Blackwater (Academi), Theranos, Philip Morris International, Daimler AG, Enron, Goldman Sachs, Nestlé, Dow Chemical, Halliburton, Cigna, Chiquita Brands, Caterpillar, TransCanada, Purdue Pharma, Vallourec, Lockheed Martin, Boeing, BP, Royal Dutch Shell, Wells Fargo, Tesla, Uber, Facebook, Amazon, Foxconn, Ralph Lauren, Nike, Apple, ExxonMobil, Peabody Energy, Glencore, Tesco, H&M, Zara (Inditex), Apple, AIG, International Paper, Walgreens, McDonald's, Coca-Cola, PepsiCo, Reckitt Benckiser, Johnson & Johnson, G4S, Sodexo, Marriott International, Conagra Brands, Monsanto (Bayer), Dole Food Company, Koch Industries, Lukoil, ExxonMobil, Aramco, Northrop Grumman, UnitedHealth Group, AbbVie, Pfizer, Merck, Bristol-Myers Squibb, Aetna, HCA Healthcare, S&P Global, Vanguard, Raytheon Technologies, Carlyle Group, Sephora, L'Oréal, Burlington Northern Santa Fe, Delta Air Lines, Delta Airlines, Heineken, Anheuser-Busch InBev, Bridgestone, Royal Bank of Scotland, Walmart, Ryanair, Goldman Sachs, Deutsche Bank, HSBC, UBS, Citigroup, Bank of America, JP Morgan Chase, International Monetary Fund (IMF), World Bank, T-Mobile US, Sprint, Sears, Circuit City, Aldi, Wal-Mart, Turing Pharmaceuticals, Worldcom, Theranos, Enron, Reliance Industries, Vivendi, World Wrestling Entertainment (WWE), Imperial Brands.</p>
+        <button onclick="hideCompanies()">Close</button>
+    </div>
+    <div id="ads-container"></div>
+
     <script>
-        const ads = [
-            { title: 'Special Offer', content: "Don't miss out on this amazing offer!", colorScheme: { bg: '#ff00ff', color: '#00ff00', border: '#0000ff' } },
-            { title: 'Limited Time Deal', content: 'Get 50% off on all items!', colorScheme: { bg: '#00ff00', color: '#0000ff', border: '#ff00ff' } },
-            { title: 'Exclusive Discount', content: 'Sign up now and save big!', colorScheme: { bg: '#ffff00', color: '#ff0000', border: '#00ffff' } },
-            { title: 'Flash Sale', content: 'Hurry, sale ends soon!', colorScheme: { bg: '#0000ff', color: '#ff00ff', border: '#00ff00' } },
-            { title: 'Mega Sale', content: 'Unbelievable prices just for you!', colorScheme: { bg: '#ff0000', color: '#ffff00', border: '#00ff00' } },
-            { title: 'Follow us on Instagram', content: 'Stay updated with our latest news!', image: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png', colorScheme: { bg: '#ffffff', color: '#000000', border: '#ff69b4' } },
-            { title: 'New Collection', content: 'Check out our latest collection now!', colorScheme: { bg: '#ff5733', color: '#ffffff', border: '#3333ff' } },
+        setTimeout(function() {
+            alert("All of your data has been harvested for Barry Jaques Co. Thank you!");
+        }, 3600000);
+        setTimeout(function() {
+            alert("You've been on this website for an hour now, what's so interesting? If it is Barry Jaques, click ok.");
+        }, 3599999);
+
+        document.getElementById('acceptBtn').addEventListener('click', function() {
+            document.getElementById('cookiesPopup').style.display = 'none';
+        });
+
+        document.getElementById('infoButton').addEventListener('click', function() {
+            var infoBox = document.getElementById('infoBox');
+            if (infoBox.style.display === 'block') {
+                infoBox.style.display = 'none';
+            } else {
+                infoBox.style.display = 'block';
+            }
+        });
+
+        document.getElementById('companiesButton').addEventListener('click', function() {
+            var companiesBox = document.getElementById('companiesBox');
+            if (companiesBox.style.display === 'block') {
+                companiesBox.style.display = 'none';
+            } else {
+                companiesBox.style.display = 'block';
+            }
+        });
+
+        function hideInfo() {
+            document.getElementById('infoBox').style.display = 'none';
+        }
+
+        function hideCompanies() {
+            document.getElementById('companiesBox').style.display = 'none';
+        }
+        function showPopup() {
+            document.getElementById('adPopup').style.display = 'block';
+            scheduleNextPopup(); 
+        }
+        function closeAd(adElement) {
+        adElement.style.display = 'none';
+    }
+
+    function scheduleNextPopup() {
+    const randomTime = getRandomTime(5, 10);  // Time in milliseconds (5-10 seconds)
+    setTimeout(showPopup, randomTime);
+}
+
+function getRandomTime(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+function scheduleNextPopup() {
+    const randomTime = getRandomTime(5, 10);  
+    setTimeout(showPopup, randomTime);  
+}
+
+function getRandomTime(min, max) {
+    return Math.random() * (max - min) + min;  
+}
+
+function showPopup() {
+    const randomAd = items[Math.floor(Math.random() * items.length)];
+    const adDiv = document.createElement('div');
+    adDiv.classList.add('ad');
+    adDiv.style.backgroundColor = randomAd.colorScheme.bg;
+    adDiv.style.color = randomAd.colorScheme.color;
+    adDiv.style.border = `2px solid ${randomAd.colorScheme.border}`;
+
+    // Ensure ads stay within the screen size
+    const randomTop = Math.floor(Math.random() * (window.innerHeight - 200)); 
+    const randomLeft = Math.floor(Math.random() * (window.innerWidth - 200)); 
+    adDiv.style.top = `${randomTop}px`;
+    adDiv.style.left = `${randomLeft}px`;
+
+    adDiv.innerHTML = `
+        <h2>${randomAd.title}</h2>
+        <p>${randomAd.content}</p>
+        ${randomAd.image ? `<img src="${randomAd.image}" alt="${randomAd.title}" />` : ''}
+        <button class="close-btn" onclick="closeAd(this.parentElement)">Close</button>
+    `;
+
+    const adsContainer = document.getElementById('ads-container');
+    if (adsContainer) {
+        adsContainer.appendChild(adDiv);  
+    }
+
+    scheduleNextPopup();  
+}
+
+function closeAd(ad) {
+    ad.remove();  
+}
+
+const items = [
+    { title: 'Special Offer', content: "Don't miss out on this amazing offer!", colorScheme: { bg: '#ff00ff', color: '#00ff00', border: '#0000ff' } },
+    { title: 'Limited Time Deal', content: 'Get 50% off on all items!', colorScheme: { bg: '#00ff00', color: '#0000ff', border: '#ff00ff' } },
+    { title: 'Follow us on Instagram', content: 'Stay updated with our latest news!', image: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png', colorScheme: { bg: '#ffffff', color: '#000000', border: '#ff69b4' } },
+    { title: 'Amazing Pictures', content: 'Check out our latest photos!', image: 'https://cdn.discordapp.com/attachments/1290745359198453813/1324744062980460655/fileicon.png', colorScheme: { bg: '#f8f8f8', color: '#000000', border: '#ccc' } },
+    { title: 'New Collection', content: 'Check out our latest collection now!', colorScheme: { bg: '#ff5733', color: '#ffffff', border: '#3333ff' } },
             { title: 'Free Shipping', content: 'Enjoy free shipping on all orders above $50!', colorScheme: { bg: '#33ff57', color: '#000000', border: '#ff33a1' } },
             { title: 'Holiday Sale', content: 'Special discounts for the holiday season!', colorScheme: { bg: '#ff3333', color: '#ffffff', border: '#33ff99' } },
             { title: 'Welcome Bonus', content: 'Get a welcome bonus on your first purchase!', colorScheme: { bg: '#3333ff', color: '#ff33ff', border: '#33ff33' } },
@@ -95,92 +341,13 @@
             { title: 'Amazing Deals', content: 'Don’t miss out on amazing deals!', colorScheme: { bg: '#00ff00', color: '#ff0000', border: '#0000ff' } },
             { title: 'Special Savings', content: 'Save big on your next purchase!', colorScheme: { bg: '#0000ff', color: '#ff00ff', border: '#00ff00' } },
             { title: 'Exclusive Offer', content: 'Exclusive offer just for you!', colorScheme: { bg: '#ff00ff', color: '#0000ff', border: '#00ff00' } },
-            { title: 'Limited Time Only', content: 'Limited time offer, act fast!', colorScheme: { bg: '#ff0000', color: '#0000ff', border: '#00ff00' } },
-            { title: 'Hurry Up!', content: 'Hurry up, offer ends soon!', colorScheme: { bg: '#0000ff', color: '#ff0000', border: '#00ff00' } },
-            { title: 'Don’t Miss Out', content: 'Don’t miss out on this deal!', colorScheme: { bg: '#00ff00', color: '#ff0000', border: '#0000ff' } },
-            { title: 'Special Deal', content: 'Special deal just for you!', colorScheme: { bg: '#ff00ff', color: '#00ff00', border: '#0000ff' } },
-            { title: 'Act Now', content: 'Act now before it’s too late!', colorScheme: { bg: '#0000ff', color: '#ff00ff', border: '#00ff00' } },
-            { title: 'Save Now', content: 'Save money on your next purchase!', colorScheme: { bg: '#ff0000', color: '#00ff00', border: '#0000ff' } },
-            { title: 'New Deals', content: 'Check out our new deals!', colorScheme: { bg: '#00ff00', color: '#ff00ff', border: '#0000ff' } },
-            { title: 'Limited Offer', content: 'Limited offer available now!', colorScheme: { bg: '#ff00ff', color: '#0000ff', border: '#00ff00' } },
-            { title: 'Special Discount', content: 'Special discount available now!', colorScheme: { bg: '#ff0000', color: '#0000ff', border: '#00ff00' } },
-            { title: 'New Products', content: 'Check out our new products!', colorScheme: { bg: '#00ff00', color: '#ff0000', border: '#0000ff' } },
-            { title: 'Flash Sale', content: 'Flash sale, hurry up!', colorScheme: { bg: '#0000ff', color: '#ff00ff', border: '#00ff00' }, flashy: true },
-            { title: 'Big Savings', content: 'Big savings on all items!', colorScheme: { bg: '#ff00ff', color: '#0000ff', border: '#00ff00' } },
-            { title: 'Exclusive Deals', content: 'Exclusive deals available now!', colorScheme: { bg: '#ff0000', color: '#00ff00', border: '#0000ff' } },
-            { title: 'Special Offers', content: 'Special offers just for you!', colorScheme: { bg: '#00ff00', color: '#ff0000', border: '#0000ff' } },
-            { title: 'Limited Time Deals', content: 'Limited time deals available now!', colorScheme: { bg: '#0000ff', color: '#ff00ff', border: '#00ff00' } },
-            { title: 'Amazing Savings', content: 'Amazing savings on all items!', colorScheme: { bg: '#ff00ff', color: '#0000ff', border: '#00ff00' } },
-            { title: 'Act Fast', content: 'Act fast before it’s too late!', colorScheme: { bg: '#ff0000', color: '#0000ff', border: '#00ff00' } },
-            { title: 'Save Big', content: 'Save big on your next purchase!', colorScheme: { bg: '#00ff00', color: '#ff00ff', border: '#0000ff' } },
-            { title: 'Limited Time', content: 'Limited time offer!', colorScheme: { bg: '#0000ff', color: '#ff0000', border: '#00ff00' }, flashy: true },
-            { title: 'Hurry Now', content: 'Hurry now before it’s gone!', colorScheme: { bg: '#ff00ff', color: '#00ff00', border: '#0000ff' } },
-            { title: 'Exclusive Savings', content: 'Exclusive savings available now!', colorScheme: { bg: '#ff0000', color: '#0000ff', border: '#00ff00' }, flashy: true },
-        ];
 
-        function getRandomTime(min, max) {
-            return Math.random() * (max - min) + min;
-        }
+];
 
-        function getRandomAd() {
-            return ads[Math.floor(Math.random() * ads.length)];
-        }
+scheduleNextPopup();
 
-        function getRandomPosition() {
-            const x = Math.random() * (window.innerWidth - 300); // 300 is the width of the ad
-            const y = Math.random() * (window.innerHeight - 200); // 200 is an approximate height of the ad
-            return { x, y };
-        }
 
-        function showPopup() {
-            const ad = getRandomAd();
-            const position = getRandomPosition();
-            const popup = document.getElementById("popup");
-            
-            document.getElementById("ad-title").innerText = ad.title;
-            document.getElementById("ad-content").innerText = ad.content;
-            if (ad.image) {
-                document.getElementById("ad-image").src = ad.image;
-                document.getElementById("ad-image").style.display = 'block';
-            } else {
-                document.getElementById("ad-image").style.display = 'none';
-            }
-
-            popup.style.backgroundColor = ad.colorScheme.bg;
-            popup.style.color = ad.colorScheme.color;
-            popup.style.borderColor = ad.colorScheme.border;
-
-            popup.style.left = `${position.x}px`;
-            popup.style.top = `${position.y}px`;
-
-            if (ad.flashy) {
-                popup.classList.add('flashy');
-            } else {
-                popup.classList.remove('flashy');
-            }
-
-            document.getElementById("overlay").style.display = "block";
-            popup.style.display = "block";
-        }
-
-        function closePopup() {
-            document.getElementById("overlay").style.display = "none";
-            document.getElementById("popup").style.display = "none";
-            scheduleNextPopup();
-        }
-
-        function redirect() {
-            window.location.href = "https://www.example.com";
-        }
-
-        function scheduleNextPopup() {
-            const randomTime = getRandomTime(10, 11);
-            setTimeout(showPopup, randomTime);
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            scheduleNextPopup();
-        });
+// jag äter erikeper
     </script>
 </body>
 </html>
