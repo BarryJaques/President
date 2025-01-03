@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +60,29 @@
             { title: 'Welcome Bonus', content: 'Get a welcome bonus on your first purchase!', colorScheme: { bg: '#3333ff', color: '#ff33ff', border: '#33ff33' } },
             { title: 'Weekly Deals', content: 'Check out our weekly deals and save big!', colorScheme: { bg: '#ffffff', color: '#0000ff', border: '#ff0000' } },
             { title: 'Gift Cards Available', content: 'Buy gift cards for your loved ones!', colorScheme: { bg: '#ffcc00', color: '#333333', border: '#cc00ff' } },
-            { title: 'Join Our Newsletter', content: 'Subscribe to our newsletter for latest updates!', colorScheme: { bg: '#00ccff', color: '#ffffff', border: '#ff99ff' } }
+            { title: 'Join Our Newsletter', content: 'Subscribe to our newsletter for latest updates!', colorScheme: { bg: '#00ccff', color: '#ffffff', border: '#ff99ff' } },
+            { title: 'Sale Alert', content: 'Get ready for our upcoming sale!', colorScheme: { bg: '#ff6600', color: '#00ff66', border: '#6600ff' } },
+            { title: 'New Arrivals', content: 'Check out our new arrivals!', colorScheme: { bg: '#00ffcc', color: '#ff0066', border: '#ff6600' } },
+            { title: 'Big Discounts', content: 'Huge discounts on selected items!', colorScheme: { bg: '#ccff00', color: '#ff00cc', border: '#0066ff' } },
+            { title: 'Limited Stock', content: 'Hurry! Stock is limited!', colorScheme: { bg: '#6600ff', color: '#00ffcc', border: '#ffcc00' } },
+            { title: 'Special Promotion', content: 'Check out our special promotion!', colorScheme: { bg: '#ff0066', color: '#66ff00', border: '#0066ff' } },
+            { title: 'Clearance Sale', content: 'Clearance sale on all items!', colorScheme: { bg: '#ffccff', color: '#6600cc', border: '#ccff00' } },
+            { title: 'Hot Deals', content: 'Hot deals just for you!', colorScheme: { bg: '#ff0033', color: '#00ff99', border: '#6600ff' } },
+            { title: 'Follow us on Twitter', content: 'Get the latest updates!', image: 'https://upload.wikimedia.org/wikipedia/en/6/60/Twitter_Logo_as_of_2021.svg', colorScheme: { bg: '#ffffff', color: '#00aced', border: '#1da1f2' } },
+            { title: 'New Blog Post', content: 'Check out our latest blog post!', colorScheme: { bg: '#ff69b4', color: '#ffffff', border: '#ff1493' } },
+            { title: 'Upcoming Event', content: 'Join our upcoming event!', colorScheme: { bg: '#ff4500', color: '#ffffff', border: '#ff8c00' } },
+            { title: 'Exclusive Content', content: 'Access exclusive content!', colorScheme: { bg: '#ffffff', color: '#ff4500', border: '#ff6347' } },
+            { title: 'Seasonal Sale', content: 'Seasonal sale on all items!', colorScheme: { bg: '#ff7f50', color: '#ffffff', border: '#ff4500' } },
+            { title: 'Special Launch', content: 'Join us for a special launch!', colorScheme: { bg: '#ff6347', color: '#ffffff', border: '#ff4500' } },
+            { title: 'Free Trial', content: 'Sign up for a free trial!', colorScheme: { bg: '#ff4500', color: '#ffffff', border: '#ff6347' } },
+            { title: 'Exclusive Access', content: 'Get exclusive access!', colorScheme: { bg: '#ff6347', color: '#ffffff', border: '#ff4500' } },
+            { title: 'New Features', content: 'Explore new features!', colorScheme: { bg: '#ff4500', color: '#ffffff', border: '#ff6347' } },
+            { title: 'Special Giveaway', content: 'Enter our special giveaway!', colorScheme: { bg: '#ff6347', color: '#ffffff', border: '#ff4500' } },
+            { title: 'Flash Giveaway', content: 'Join our flash giveaway!', colorScheme: { bg: '#ff4500', color: '#ffffff', border: '#ff6347' } },
+            { title: 'Exclusive Membership', content: 'Get exclusive membership!', colorScheme: { bg: '#ff6347', color: '#ffffff', border: '#ff4500' } },
+            { title: 'New Update', content: 'Check out our new update!', colorScheme: { bg: '#ff4500', color: '#ffffff', border: '#ff6347' } },
+            { title: 'Special Offer', content: 'Get special offer now!', colorScheme: { bg: '#ff6347', color: '#ffffff', border: '#ff4500' } },
+            { title: 'Follow us on Facebook', content: 'Stay connected on Facebook!', image: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg', colorScheme: { bg: '#ffffff', color: '#1877f2', border: '#1877f2' } }
         ];
 
         function getRandomTime(min, max) {
@@ -114,7 +135,7 @@
         }
 
         function scheduleNextPopup() {
-            const randomTime = getRandomTime(100, 1000);
+            const randomTime = getRandomTime(10000, 16000);
             setTimeout(showPopup, randomTime);
         }
 
