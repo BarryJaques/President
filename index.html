@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Popups</title>
+    <style>
+        .ad-popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: #ff00ff; /* Bright magenta background */
+            color: #00ff00; /* Bright green text */
+            border: 5px solid #0000ff; /* Bright blue border */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 900;
+        }
+        .ad-popup button {
+            margin: 10px;
+            background-color: #ffff00; 
+            color: #ff0000; 
+            border: 2px solid #00ffff; 
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    <div class="ad-popup" id="popup">
+        <h2 id="ad-title"></h2>
+        <p id="ad-content"></p>
+        <button onclick="redirect()">Redirect me</button>
+        <button onclick="closePopup()">Close ad</button>
+    </div>
 
+    <script>
+        const ads = [
+            { title: 'Special Offer', content: "Don't miss out on this amazing offer!" },
+            { title: 'Limited Time Deal', content: 'Get 50% off on all items!' },
+            { title: 'Exclusive Discount', content: 'Sign up now and save big!' },
+            { title: 'Flash Sale', content: 'Hurry, sale ends soon!' },
+            { title: 'Mega Sale', content: 'Unbelievable prices just for you!' }
+        ];
+
+        function getRandomTime(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        function getRandomAd() {
+            return ads[Math.floor(Math.random() * ads.length)];
+        }
+
+        function showPopup() {
+            const ad = getRandomAd();
+            document.getElementById("ad-title").innerText = ad.title;
+            document.getElementById("ad-content").innerText = ad.content;
+
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("popup").style.display = "none";
+            scheduleNextPopup();
+        }
+
+        function redirect() {
+            window.location.href = "https://www.example.com";
+        }
+
+        function scheduleNextPopup() {
+            const randomTime = getRandomTime(10000, 600000);
+            setTimeout(showPopup, randomTime);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            scheduleNextPopup();
+        });
+    </script>
+</body>
+</html>
