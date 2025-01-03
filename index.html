@@ -8,9 +8,6 @@
         .ad-popup {
             display: none;
             position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
             width: 300px;
             padding: 20px;
             background-color: #ff00ff; 
@@ -63,13 +60,25 @@
             return ads[Math.floor(Math.random() * ads.length)];
         }
 
+        function getRandomPosition() {
+            const x = Math.random() * (window.innerWidth - 300); 
+            const y = Math.random() * (window.innerHeight - 200); 
+            return { x, y };
+        }
+
         function showPopup() {
             const ad = getRandomAd();
+            const position = getRandomPosition();
+            const popup = document.getElementById("popup");
+
             document.getElementById("ad-title").innerText = ad.title;
             document.getElementById("ad-content").innerText = ad.content;
 
+            popup.style.left = `${position.x}px`;
+            popup.style.top = `${position.y}px`;
+
             document.getElementById("overlay").style.display = "block";
-            document.getElementById("popup").style.display = "block";
+            popup.style.display = "block";
         }
 
         function closePopup() {
