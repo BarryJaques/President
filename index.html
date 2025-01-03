@@ -172,6 +172,33 @@
         width: 150px; 
     }
 }
+.ads-container {
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.image-ad {
+  position: relative;
+  width: 300px; 
+  height: 250px; 
+  overflow: hidden;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #f8f8f8;
+}
+
+.image-ad img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+.image-ad:hover {
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+}
     </style>
 </head>
 <body>
@@ -237,6 +264,43 @@
             }
         });
 
+
+        let totalEarnings = 0;
+
+// Function to update the counter displayed in the top-left corner
+function updateEarnings() {
+    totalEarnings += 0.00003558407; // Increase earnings by 0.1957€ each time
+    document.getElementById('earnings-counter').textContent = `The number right of this text is how much these ads have earned from you: €${totalEarnings.toFixed(10)}`;
+}
+
+function createEarningsCounter() {
+    const counterDiv = document.createElement('div');
+    counterDiv.id = 'earnings-counter';
+    counterDiv.style.position = 'fixed';
+    counterDiv.style.top = '150px';  
+    counterDiv.style.left = '50px';  
+    counterDiv.style.fontSize = '14px';  
+    counterDiv.style.fontFamily = 'Arial, sans-serif';
+    counterDiv.style.color = '#000';
+    counterDiv.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';  
+    counterDiv.style.padding = '8px 15px';  
+    counterDiv.style.border = '1px solid #ccc';
+    counterDiv.style.borderRadius = '8px';  
+    counterDiv.style.zIndex = '10000';  
+    document.body.appendChild(counterDiv);
+
+    setInterval(updateEarnings, 1);
+}
+
+createEarningsCounter();
+
+
+
+
+function scheduleNextPopup() {
+    const randomTime = getRandomTime(5000, 6000);  
+    setTimeout(showPopup, randomTime);  
+}
         function hideInfo() {
             document.getElementById('infoBox').style.display = 'none';
         }
@@ -253,7 +317,7 @@
     }
 
     function scheduleNextPopup() {
-    const randomTime = getRandomTime(5, 10);  // Time in milliseconds (5-10 seconds)
+    const randomTime = getRandomTime(5, 10);  
     setTimeout(showPopup, randomTime);
 }
 
@@ -262,7 +326,7 @@ function getRandomTime(min, max) {
 }
 
 function scheduleNextPopup() {
-    const randomTime = getRandomTime(5, 10);  
+    const randomTime = getRandomTime(5000, 18600);  
     setTimeout(showPopup, randomTime);  
 }
 
@@ -278,7 +342,6 @@ function showPopup() {
     adDiv.style.color = randomAd.colorScheme.color;
     adDiv.style.border = `2px solid ${randomAd.colorScheme.border}`;
 
-    // Ensure ads stay within the screen size
     const randomTop = Math.floor(Math.random() * (window.innerHeight - 200)); 
     const randomLeft = Math.floor(Math.random() * (window.innerWidth - 200)); 
     adDiv.style.top = `${randomTop}px`;
@@ -341,6 +404,257 @@ const items = [
             { title: 'Amazing Deals', content: 'Don’t miss out on amazing deals!', colorScheme: { bg: '#00ff00', color: '#ff0000', border: '#0000ff' } },
             { title: 'Special Savings', content: 'Save big on your next purchase!', colorScheme: { bg: '#0000ff', color: '#ff00ff', border: '#00ff00' } },
             { title: 'Exclusive Offer', content: 'Exclusive offer just for you!', colorScheme: { bg: '#ff00ff', color: '#0000ff', border: '#00ff00' } },
+    { title: 'Super Sale', content: 'Everything must go!', colorScheme: { bg: '#ff00ff', color: '#ffff00', border: '#ff0000' } },
+    { title: 'Mega Discount', content: 'Huge markdowns across the store!', colorScheme: { bg: '#00ffff', color: '#ff00ff', border: '#ff00ff' } },
+    { title: 'VIP Access', content: 'Unlock exclusive deals now!', colorScheme: { bg: '#ff8000', color: '#00ff00', border: '#ff007f' } },
+    { title: 'Don’t Miss Out', content: 'Get these deals before they are gone!', colorScheme: { bg: '#8000ff', color: '#ff00ff', border: '#00ff80' } },
+    { title: 'Hurry Up', content: 'Limited time only, act fast!', colorScheme: { bg: '#ff0000', color: '#ff00ff', border: '#000000' } },
+    { title: 'Buy One Get One Free', content: 'Get an extra one for free!', colorScheme: { bg: '#800080', color: '#00ffff', border: '#ff00ff' } },
+    { title: 'Don’t Wait!', content: 'Catch these offers before they disappear!', colorScheme: { bg: '#ff4000', color: '#00ff40', border: '#ff0040' } },
+    { title: 'Last Chance!', content: 'Buy now or never!', colorScheme: { bg: '#00ffcc', color: '#ff6600', border: '#6600ff' } },
+    { title: 'Unbeatable Prices', content: 'Prices like never before!', colorScheme: { bg: '#ffcc00', color: '#ff0033', border: '#33ccff' } },
+    { title: 'Extreme Offers', content: 'Offers you won’t believe!', colorScheme: { bg: '#ff9900', color: '#6600cc', border: '#ffff00' } },
+    { title: 'Exclusive Discount', content: 'Just for you, don’t miss it!', colorScheme: { bg: '#ff0000', color: '#ffffff', border: '#00ff00' } },
+    { title: 'Crazy Sale', content: 'Everything on sale!', colorScheme: { bg: '#ffff00', color: '#ff00cc', border: '#ff0099' } },
+    { title: 'Insane Prices', content: 'Prices so low, it’s crazy!', colorScheme: { bg: '#ff6666', color: '#66ccff', border: '#ffff00' } },
+    { title: 'Unreal Deal', content: 'A deal too good to pass up!', colorScheme: { bg: '#666666', color: '#ff6600', border: '#ffccff' } },
+    { title: 'Not to Miss', content: 'An offer you can’t ignore!', colorScheme: { bg: '#ffccff', color: '#33ff00', border: '#ff0000' } },
+    { title: 'Best Price Ever', content: 'Price cut to the lowest point ever!', colorScheme: { bg: '#ff33cc', color: '#ff6600', border: '#00ff00' } },
+    { title: 'Amazing Deal!', content: 'Get this incredible deal now!', colorScheme: { bg: '#ff6633', color: '#ccff00', border: '#ff0033' } },
+    { title: 'Flash Bargain', content: 'Only a few left at this price!', colorScheme: { bg: '#6600ff', color: '#ff0000', border: '#ffff00' } },
+    { title: 'Unbelievable Offer', content: 'You won’t believe the price!', colorScheme: { bg: '#ff0033', color: '#00ccff', border: '#ff9966' } },
+    { title: 'Mega Offer', content: 'Massive savings, limited time only!', colorScheme: { bg: '#00cc00', color: '#ffff00', border: '#ff0000' } },
+    { title: 'Hot Discount', content: 'Get it while it’s hot!', colorScheme: { bg: '#ff66ff', color: '#ff3333', border: '#cc00cc' } },
+    { title: 'Join Neo Nation', content: 'https://discord.gg/neonation/', image: 'https://cdn.discordapp.com/attachments/1068035009526636616/1324751100598947870/neoslayer.jpg?ex=67794a1b&is=6777f89b&hm=31ac64a13229a6835ec442d82da3548ae0387e427ed0f352686c5fd14e3e6104&', colorScheme: { bg: '#ffffff', color: '#1877f2', border: '#1877f2' } },
+    { title: 'Join Neo Nation', content: 'https://discord.gg/neonation/', image: 'https://cdn.discordapp.com/attachments/1068035009526636616/1324751211542614150/1168288505080860813.png?ex=67794a35&is=6777f8b5&hm=1e1c1871f43145c4bcb98ba1b57107b28c7bde13aa56642f2790f07dbf4c09ec&', colorScheme: { bg: '#ffffff', color: '#1877f2', border: '#1877f2' } },
+    { title: 'Flash Sale', content: 'Unbelievable discounts for a limited time!', colorScheme: { bg: '#ff4500', color: '#ffffff', border: '#ff6347' } },
+    { title: 'Today Only!', content: 'Shop today for exclusive deals!', colorScheme: { bg: '#33ccff', color: '#ff00ff', border: '#ffcc00' } },
+    { title: 'Big Savings', content: 'Save big on your favorite items!', colorScheme: { bg: '#ff0000', color: '#ffffff', border: '#00ff00' } },
+    { title: 'New Arrival Alert', content: 'Fresh products just dropped in store!', colorScheme: { bg: '#00ffcc', color: '#ff0066', border: '#ff6600' } },
+    { title: 'Exclusive Offer', content: 'Grab this limited-time exclusive offer now!', colorScheme: { bg: '#6633cc', color: '#ffffff', border: '#33cc33' } },
+    { title: 'Free Gift with Purchase', content: 'Buy now and get a free gift with every purchase!', colorScheme: { bg: '#ff69b4', color: '#ffffff', border: '#cc0066' } },
+    { title: 'Limited Edition', content: 'Get your hands on our limited edition items now!', colorScheme: { bg: '#cc0000', color: '#ffffff', border: '#ffff00' } },
+    { title: 'Best Deals of the Year', content: 'The best deals, only for a limited time!', colorScheme: { bg: '#ff9966', color: '#ff0033', border: '#ffcc33' } },
+    { title: 'Sale Countdown', content: 'Only 24 hours left to save!', colorScheme: { bg: '#ff3366', color: '#ffffff', border: '#33cc99' } },
+    { title: 'VIP Only', content: 'Unlock special offers with VIP access!', colorScheme: { bg: '#ff99ff', color: '#000066', border: '#ff66cc' } },
+    { title: 'Seasonal Specials', content: 'Special prices for this season only!', colorScheme: { bg: '#ff6600', color: '#ffffff', border: '#cc33ff' } },
+    { title: 'Weekend Flash Sale', content: 'Weekend only deals – don’t miss out!', colorScheme: { bg: '#ff99cc', color: '#333333', border: '#66cc66' } },
+    { title: 'Buy 1 Get 1 Free', content: 'Buy any item and get another one free!', colorScheme: { bg: '#ffccff', color: '#00cc99', border: '#ff33cc' } },
+    { title: 'Free Gift Cards', content: 'Earn free gift cards with every purchase!', colorScheme: { bg: '#ff0000', color: '#ffffff', border: '#00ff00' } },
+    { title: 'New Year Special', content: 'Celebrate the new year with massive discounts!', colorScheme: { bg: '#cc33ff', color: '#ffffff', border: '#ff6600' } },
+    { title: 'Weekend Deals', content: 'Check out this weekend’s hottest deals!', colorScheme: { bg: '#ff33cc', color: '#ffffff', border: '#ff9966' } },
+    { title: 'Hot Deals Today', content: 'Grab the best deals while they last!', colorScheme: { bg: '#ff0033', color: '#ffffff', border: '#00ccff' } },
+    { title: 'Mega Sale', content: 'Massive discounts on everything in store!', colorScheme: { bg: '#ff6600', color: '#ffffff', border: '#3300cc' } },
+    { title: 'Exclusive Pre-Sale', content: 'Get access to our pre-sale now!', colorScheme: { bg: '#99ccff', color: '#000066', border: '#ff33cc' } },
+    { title: 'Seasonal Clearance', content: 'End of season clearance sale – up to 70% off!', colorScheme: { bg: '#ffcc66', color: '#6633ff', border: '#33cc99' } },
+    { title: 'Last Chance Deals', content: 'Hurry, last chance to grab these deals!', colorScheme: { bg: '#ff0099', color: '#ffffff', border: '#ff6600' } },
+    { title: 'Up to 50% Off', content: 'Save up to 50% on selected items!', colorScheme: { bg: '#33ffcc', color: '#ff00ff', border: '#ff6633' } },
+    { title: 'Unbeatable Price', content: 'You won’t find a better price anywhere else!', colorScheme: { bg: '#ff6666', color: '#ffffff', border: '#00ccff' } },
+    { title: 'Holiday Offer', content: 'Celebrate with amazing holiday deals!', colorScheme: { bg: '#ffcc00', color: '#ffffff', border: '#6600ff' } },
+    { title: 'Early Bird Special', content: 'Early risers get the best deals!', colorScheme: { bg: '#00ccff', color: '#ff0033', border: '#ff66ff' } },
+    { title: 'Bundle Offer', content: 'Bundle and save more on your favorite items!', colorScheme: { bg: '#ff0000', color: '#ffffff', border: '#00cc00' } },
+    { title: 'Super Discounts', content: 'Super discounts available for a limited time!', colorScheme: { bg: '#ff6600', color: '#ffffff', border: '#ff0000' } },
+    { title: 'Exclusive Collection', content: 'Discover our exclusive new collection now!', colorScheme: { bg: '#33ff00', color: '#ffffff', border: '#ff0000' } },
+    { title: 'Limited Time Only', content: 'Act fast – these deals won’t last long!', colorScheme: { bg: '#6600ff', color: '#ffffff', border: '#33ff66' } },
+    { title: 'Special Gift Offer', content: 'Get a free gift with every purchase over $100!', colorScheme: { bg: '#ff66cc', color: '#ffffff', border: '#ff0066' } },
+    { title: 'Luxury Deals', content: 'Shop luxury items at unbeatable prices!', colorScheme: { bg: '#6600cc', color: '#ffffff', border: '#ff9900' } },
+    { title: 'Weekend Bargains', content: 'Shop this weekend for unbeatable bargains!', colorScheme: { bg: '#33cc33', color: '#ffffff', border: '#ff6600' } },
+    { title: 'Big Price Cut', content: 'Massive price cuts for a limited time!', colorScheme: { bg: '#ff6633', color: '#ffffff', border: '#66ff00' } },
+    { title: 'Special Giveaway', content: 'Enter now for a chance to win amazing prizes!', colorScheme: { bg: '#00ffff', color: '#000066', border: '#ff6600' } },
+    { title: 'Free Samples', content: 'Get free samples with every purchase!', colorScheme: { bg: '#ccffcc', color: '#000066', border: '#ff0066' } },
+    { title: 'Weekly Promo', content: 'New deals every week – don’t miss out!', colorScheme: { bg: '#ff0099', color: '#ffffff', border: '#ff66ff' } },
+    { title: 'Blazing Deal', content: 'Get the hottest deal now!', colorScheme: { bg: '#f5a623', color: '#9b59b6', border: '#2c3e50' } },
+    { title: 'Super Discount', content: 'Massive savings today only!', colorScheme: { bg: '#e74c3c', color: '#2980b9', border: '#f39c12' } },
+    { title: 'Exclusive Offer', content: 'Special offer just for you!', colorScheme: { bg: '#3498db', color: '#f1c40f', border: '#8e44ad' } },
+    { title: 'Flash Sale', content: 'Hurry, deals are going fast!', colorScheme: { bg: '#e67e22', color: '#16a085', border: '#2ecc71' } },
+    { title: 'Limited Stock', content: 'Grab them before they’re gone!', colorScheme: { bg: '#1abc9c', color: '#d35400', border: '#f39c12' } },
+    { title: 'Buy 2 Get 1 Free', content: 'More items, less money!', colorScheme: { bg: '#9b59b6', color: '#2ecc71', border: '#f1c40f' } },
+    { title: 'Huge Savings', content: 'Save big on your favorite items!', colorScheme: { bg: '#f39c12', color: '#8e44ad', border: '#e74c3c' } },
+    { title: 'Mega Flash Deal', content: 'This deal will blow your mind!', colorScheme: { bg: '#2c3e50', color: '#f5a623', border: '#9b59b6' } },
+    { title: 'New Arrivals', content: 'Check out the latest products!', colorScheme: { bg: '#8e44ad', color: '#3498db', border: '#f39c12' } },
+    { title: 'Extra 20% Off', content: 'Use code: SAVE20 at checkout!', colorScheme: { bg: '#2ecc71', color: '#e74c3c', border: '#f1c40f' } },
+    { title: 'wuwiwuwuuuuuoethiergh', content: 'Oh, you’ve found the ad of the century... not.', colorScheme: { bg: '#a7a7a7', color: '#e7e7e7', border: '#999999' } },
+    { title: 'wuwiwuwuuuuuoethiergh', content: 'Yeah, you totally need this... definitely. No questions asked.', colorScheme: { bg: '#777777', color: '#cccccc', border: '#444444' } },
+    { title: 'wuwiwuwuuuuuoethiergh', content: 'Because who wouldn’t want more of this? Absolutely everyone.', colorScheme: { bg: '#b0b0b0', color: '#ffffff', border: '#696969' } },
+    { title: 'wuwiwuwuuuuuoethiergh', content: 'Seriously, don’t buy this. I dare you to not click.', colorScheme: { bg: '#4f4f4f', color: '#d4d4d4', border: '#303030' } },
+    { title: 'wuwiwuwuuuuuoethiergh', content: 'You’re really gonna want to ignore this. Just a suggestion.', colorScheme: { bg: '#d1d1d1', color: '#383838', border: '#9c9c9c' } },
+    { title: 'wuwiwuwuuuuuoethiergh', content: 'Why bother? This ad is way too good for you anyway.', colorScheme: { bg: '#505050', color: '#f0f0f0', border: '#707070' } },
+    { title: 'wuwiwuwuuuuuoethiergh', content: 'Don’t click. Just don’t. It’s too exciting to handle.', colorScheme: { bg: '#9b9b9b', color: '#c1c1c1', border: '#606060' } },
+    { title: 'wuwiwuwuuuuuoethiergh', content: 'Oh look, another ad you’ll totally ignore. How original.', colorScheme: { bg: '#cccccc', color: '#222222', border: '#777777' } },
+    { title: 'wuwiwuwuuuuuoethiergh', content: 'Nothing screams “must buy” like this. It’s practically screaming it.', colorScheme: { bg: '#888888', color: '#e3e3e3', border: '#444444' } },
+    { title: 'wuwiwuwuuuuuoethiergh', content: 'You’ll regret not clicking on this. Or not. Probably not.', colorScheme: { bg: '#3d3d3d', color: '#bababa', border: '#999999' } },
+    { title: 'Final Clearance', content: 'Everything must go at half price!', colorScheme: { bg: '#16a085', color: '#e67e22', border: '#3498db' } },
+    { title: 'Free Gift with Purchase', content: 'Get a free gift today!', colorScheme: { bg: '#e74c3c', color: '#9b59b6', border: '#1abc9c' } },
+    { title: 'Best Seller', content: 'Check out the most popular items!', colorScheme: { bg: '#f1c40f', color: '#3498db', border: '#e67e22' } },
+    { title: 'Back in Stock', content: 'Get them before they’re sold out again!', colorScheme: { bg: '#d35400', color: '#8e44ad', border: '#1abc9c' } },
+    { title: 'Weekend Special', content: 'Get exclusive deals this weekend!', colorScheme: { bg: '#2980b9', color: '#f39c12', border: '#e74c3c' } },
+    { title: 'Today Only', content: 'Don’t wait, shop now!', colorScheme: { bg: '#2ecc71', color: '#9b59b6', border: '#e67e22' } },
+    { title: 'Big Savings', content: 'Up to 60% off all items!', colorScheme: { bg: '#16a085', color: '#8e44ad', border: '#3498db' } },
+    { title: 'Limited Time', content: 'Act now before it’s too late!', colorScheme: { bg: '#f5a623', color: '#3498db', border: '#1abc9c' } },
+    { title: 'Free Shipping', content: 'Free shipping on orders over $50!', colorScheme: { bg: '#f39c12', color: '#2ecc71', border: '#2980b9' } },
+    { title: 'Hot Offer', content: 'Don’t miss these hot deals!', colorScheme: { bg: '#d35400', color: '#f5a623', border: '#2ecc71' } },
+    { title: 'Exclusive Access', content: 'Get early access to the sale!', colorScheme: { bg: '#3498db', color: '#e67e22', border: '#9b59b6' } },
+    { title: 'Mega Offer', content: 'Massive discounts on everything!', colorScheme: { bg: '#8e44ad', color: '#1abc9c', border: '#f1c40f' } },
+    { title: 'Midnight Sale', content: 'Shop now before it ends at midnight!', colorScheme: { bg: '#1abc9c', color: '#f39c12', border: '#2c3e50' } },
+    { title: 'Shop Now', content: 'Start shopping now and save big!', colorScheme: { bg: '#e67e22', color: '#9b59b6', border: '#2ecc71' } },
+    { title: 'Winter Sale', content: 'Winter deals you can’t miss!', colorScheme: { bg: '#2ecc71', color: '#3498db', border: '#f1c40f' } },
+    { title: 'Crazy Discount', content: 'Unbelievable savings await!', colorScheme: { bg: '#9b59b6', color: '#8e44ad', border: '#3498db' } },
+    { title: 'Exclusive Deal', content: 'Unlock your exclusive deal now!', colorScheme: { bg: '#8e44ad', color: '#e74c3c', border: '#3498db' } },
+    { title: 'Deal of the Day', content: 'Get today’s special deal now!', colorScheme: { bg: '#f39c12', color: '#2ecc71', border: '#e74c3c' } },
+    { title: 'Buy More Save More', content: 'Get bigger discounts when you buy more!', colorScheme: { bg: '#3498db', color: '#2ecc71', border: '#f5a623' } },
+    { title: 'Shop & Save', content: 'Save money while you shop!', colorScheme: { bg: '#e74c3c', color: '#8e44ad', border: '#f39c12' } },
+    { title: 'Flash Offer', content: 'Flash deals available now!', colorScheme: { bg: '#1abc9c', color: '#3498db', border: '#2ecc71' } },
+    { title: 'Mega Savings', content: 'Don’t miss out on huge savings!', colorScheme: { bg: '#f5a623', color: '#2ecc71', border: '#3498db' } },
+    { title: 'Final Chance', content: 'This is your last chance to buy!', colorScheme: { bg: '#8e44ad', color: '#3498db', border: '#2ecc71' } },
+    { title: 'Today’s Special', content: 'Shop today’s special offer!', colorScheme: { bg: '#f39c12', color: '#9b59b6', border: '#2c3e50' } },
+    { title: 'Big Price Drop', content: 'Prices have dropped significantly!', colorScheme: { bg: '#16a085', color: '#e74c3c', border: '#8e44ad' } },
+    { title: 'Limited Time Offer', content: 'Get this deal before time runs out!', colorScheme: { bg: '#3498db', color: '#e67e22', border: '#1abc9c' } },
+    { title: 'Exclusive Discount', content: 'Get exclusive discounts now!', colorScheme: { bg: '#8e44ad', color: '#2ecc71', border: '#e67e22' } },
+    { title: 'Seasonal Sale', content: 'Save up to 70% in the seasonal sale!', colorScheme: { bg: '#9b59b6', color: '#f39c12', border: '#2ecc71' } },
+    { title: 'Best Deal Ever', content: 'This is the best deal ever!', colorScheme: { bg: '#1abc9c', color: '#3498db', border: '#9b59b6' } },
+    { title: 'Special Offer', content: 'Don’t miss out on this special offer!', colorScheme: { bg: '#e67e22', color: '#2ecc71', border: '#3498db' } },
+    { title: 'Barry Jaques CO Innovation', content: 'Pushing the boundaries of technology!', colorScheme: { bg: '#ff5733', color: '#33ff57', border: '#5733ff' } },
+    { title: 'Leading the Future', content: 'Join Barry Jaques CO in shaping tomorrow!', colorScheme: { bg: '#00ff00', color: '#ff00ff', border: '#ff3300' } },
+    { title: 'Tech Revolution', content: 'Barry Jaques CO leads the way in tech innovation!', colorScheme: { bg: '#ff9900', color: '#0066ff', border: '#6600ff' } },
+    { title: 'Sustainability First', content: 'Barry Jaques CO is committed to sustainability!', colorScheme: { bg: '#00ccff', color: '#ff0000', border: '#ff9900' } },
+    { title: 'Redefining Excellence', content: 'Barry Jaques CO sets new standards!', colorScheme: { bg: '#ff0066', color: '#66ff00', border: '#ffcc00' } },
+    { title: 'Barry Jaques CO Vision', content: 'Changing the world with bold ideas!', colorScheme: { bg: '#00ffcc', color: '#ff0033', border: '#3300ff' } },
+    { title: 'Innovate with Barry Jaques CO', content: 'Be part of the innovation revolution!', colorScheme: { bg: '#ff3300', color: '#00ff66', border: '#ff9900' } },
+    { title: 'Future-Proof Your Life', content: 'Barry Jaques CO leads industries into the future!', colorScheme: { bg: '#00cc00', color: '#cc00cc', border: '#0000ff' } },
+    { title: 'Barry Jaques CO Impact', content: 'Creating social impact with every step!', colorScheme: { bg: '#ff6600', color: '#00ffcc', border: '#0000cc' } },
+    { title: 'Leading the Charge', content: 'Barry Jaques CO: Innovation that drives change!', colorScheme: { bg: '#ffff00', color: '#ff0000', border: '#6600cc' } },
+    { title: 'Barry Jaques CO Sustainability', content: 'Innovating for a greener future!', colorScheme: { bg: '#00ff99', color: '#ff6600', border: '#ff33cc' } },
+    { title: 'Innovation Never Stops', content: 'Barry Jaques CO is always ahead!', colorScheme: { bg: '#6600cc', color: '#ff0066', border: '#ff99ff' } },
+    { title: 'Barry Jaques CO Culture', content: 'Where creativity meets collaboration!', colorScheme: { bg: '#ff33cc', color: '#00ffcc', border: '#ff0000' } },
+    { title: 'Join Barry Jaques CO', content: 'Be part of a global powerhouse!', colorScheme: { bg: '#00ff66', color: '#ff3300', border: '#ff00ff' } },
+    { title: 'Revolutionizing Industries', content: 'Barry Jaques CO is reshaping the world!', colorScheme: { bg: '#ff0033', color: '#33ccff', border: '#cc00cc' } },
+    { title: 'Future-Driven', content: 'Innovating for tomorrow, today!', colorScheme: { bg: '#ff6600', color: '#ffff00', border: '#ff33cc' } },
+    { title: 'Barry Jaques CO Growth', content: 'Fostering global economic growth!', colorScheme: { bg: '#33ff99', color: '#ff6600', border: '#ffff00' } },
+    { title: 'Barry Jaques CO Global', content: 'Making a difference worldwide!', colorScheme: { bg: '#00ccff', color: '#ff0033', border: '#6600ff' } },
+    { title: 'Innovation in Action', content: 'Watch Barry Jaques CO push boundaries!', colorScheme: { bg: '#00ffcc', color: '#ff3300', border: '#ff6600' } },
+    { title: 'Barry Jaques CO Leadership', content: 'Inspired leadership for global change!', colorScheme: { bg: '#6600ff', color: '#ff9900', border: '#ff0066' } },
+    { title: 'Empowering People', content: 'Barry Jaques CO empowers its employees!', colorScheme: { bg: '#ff0000', color: '#ffcc00', border: '#33ccff' } },
+    { title: 'Barry Jaques CO Tech', content: 'Innovation at the intersection of technology and progress!', colorScheme: { bg: '#33ccff', color: '#ff0066', border: '#ff3300' } },
+    { title: 'Building the Future', content: 'Barry Jaques CO is building a brighter tomorrow!', colorScheme: { bg: '#ff9966', color: '#ff33cc', border: '#33ff00' } },
+    { title: 'Barry Jaques CO Sustainability', content: 'Leading the green revolution in business!', colorScheme: { bg: '#ff3399', color: '#00ff66', border: '#9966ff' } },
+    { title: 'Barry Jaques CO’s Promise', content: 'Our promise is a better future for all!', colorScheme: { bg: '#00ffcc', color: '#ff6600', border: '#3300ff' } },
+    { title: 'Barry Jaques CO Power', content: 'A global force shaping the future!', colorScheme: { bg: '#cc00cc', color: '#ff6600', border: '#33ff99' } },
+    { title: 'Tech for Good', content: 'Barry Jaques CO is using tech for positive change!', colorScheme: { bg: '#ff3300', color: '#00ff99', border: '#ff6600' } },
+    { title: 'Innovation Leads the Way', content: 'Barry Jaques CO is a leader in innovation!', colorScheme: { bg: '#ff0066', color: '#6600ff', border: '#ff3300' } },
+    { title: 'A Global Leader', content: 'Barry Jaques CO is the leader of the pack!', colorScheme: { bg: '#00ff99', color: '#ff6600', border: '#3300ff' } },
+    { title: 'Change the World', content: 'Barry Jaques CO is shaping the world!', colorScheme: { bg: '#ff3300', color: '#00ccff', border: '#6600ff' } },
+    { title: 'Barry Jaques CO Excellence', content: 'Excellence is the core of everything we do!', colorScheme: { bg: '#00ff66', color: '#ff3300', border: '#ff9966' } },
+    { title: 'Barry Jaques CO Careers', content: 'Build a rewarding career with Barry Jaques CO!', colorScheme: { bg: '#ff6600', color: '#ff33cc', border: '#9966ff' } },
+    { title: 'Innovation for All', content: 'Barry Jaques CO’s products are for everyone!', colorScheme: { bg: '#ff0066', color: '#ffff00', border: '#33ccff' } },
+    { title: 'Barry Jaques CO Solutions', content: 'Our solutions are revolutionizing industries!', colorScheme: { bg: '#ff3399', color: '#6600ff', border: '#33ff66' } },
+    { title: 'Making a Difference', content: 'Barry Jaques CO is changing lives!', colorScheme: { bg: '#ff6600', color: '#ff00cc', border: '#33cc99' } },
+    { title: 'Barry Jaques CO Sustainability', content: 'Committed to a sustainable future!', colorScheme: { bg: '#00ccff', color: '#ff3300', border: '#6600ff' } },
+    { title: 'Barry Jaques CO: A Vision for the Future', content: 'A company with a bold vision!', colorScheme: { bg: '#ff9900', color: '#33ccff', border: '#ff3300' } },
+    { title: 'Leading Innovation', content: 'Barry Jaques CO at the forefront of innovation!', colorScheme: { bg: '#ff33cc', color: '#00ff66', border: '#3300ff' } },
+    { title: 'Barry Jaques CO Opportunities', content: 'Explore new opportunities with us!', colorScheme: { bg: '#ff6600', color: '#6600ff', border: '#ff0033' } },
+    { title: 'Barry Jaques CO Change', content: 'Transforming industries worldwide!', colorScheme: { bg: '#33ff00', color: '#ff0066', border: '#ff3300' } },
+    { title: 'Barry Jaques CO Community', content: 'Building strong global communities!', colorScheme: { bg: '#ffcc00', color: '#33ffcc', border: '#ff6600' } },
+    { title: 'Barry Jaques CO Products', content: 'Innovative products that change the world!', colorScheme: { bg: '#33cc99', color: '#ff3300', border: '#ff0066' } },
+    { title: 'Leading Tomorrow', content: 'Barry Jaques CO is leading the way for tomorrow!', colorScheme: { bg: '#ff0033', color: '#33ff00', border: '#9900ff' } },
+    { title: 'Empowerment at Barry Jaques CO', content: 'Empowering employees to innovate!', colorScheme: { bg: '#ffff00', color: '#ff6600', border: '#33ccff' } },
+    { title: 'Shaping the Future', content: 'Barry Jaques CO is shaping the future!', colorScheme: { bg: '#ff6600', color: '#33ff99', border: '#ff0066' } },
+    { title: 'The Barry Jaques CO Difference', content: 'Experience the Barry Jaques CO difference today!', colorScheme: { bg: '#ff33cc', color: '#ff0066', border: '#33cc99' } },
+    { title: 'Barry Jaques CO Innovations', content: 'Innovating industries for the better!', colorScheme: { bg: '#6600cc', color: '#ff6600', border: '#33ccff' } },
+    { title: 'Global Leader in Innovation', content: 'Barry Jaques CO leads the charge in innovation!', colorScheme: { bg: '#33ff00', color: '#6600ff', border: '#ffcc00' } },
+    { title: 'Barry Jaques CO Breakthroughs', content: 'Breakthrough innovations you can trust!', colorScheme: { bg: '#ff3300', color: '#00ffcc', border: '#ff0066' } },
+    { title: 'Discover Barry Jaques CO', content: 'The future of business is here!', colorScheme: { bg: '#ffff00', color: '#33ccff', border: '#ff6600' } },
+    { title: 'kiidzkaze - The Future', content: 'Innovating for the next generation!', colorScheme: { bg: '#ff0066', color: '#00ff00', border: '#ff3300' } },
+    { title: 'Transform with kiidzkaze', content: 'Shape the future with cutting-edge innovation!', colorScheme: { bg: '#ff6600', color: '#0000ff', border: '#66ff33' } },
+    { title: 'Join kiidzkaze Today', content: 'Be part of the revolution in technology!', colorScheme: { bg: '#00ff66', color: '#ff3300', border: '#0000ff' } },
+    { title: 'kiidzkaze Innovations', content: 'Pushing the boundaries of possibility!', colorScheme: { bg: '#ff0033', color: '#ffcc00', border: '#3300ff' } },
+    { title: 'The Next Level with kiidzkaze', content: 'Get ready for the future!', colorScheme: { bg: '#66ccff', color: '#ff00cc', border: '#ff3300' } },
+    { title: 'kiidzkaze: Redefining Tech', content: 'Tech solutions for a bold new world!', colorScheme: { bg: '#ff9900', color: '#00cc00', border: '#33ff99' } },
+    { title: 'Innovate with kiidzkaze', content: 'Change the game with us!', colorScheme: { bg: '#ff6600', color: '#0000cc', border: '#00ff99' } },
+    { title: 'Future-Proof Your Career with kiidzkaze', content: 'Join the innovators!', colorScheme: { bg: '#33ff00', color: '#ff0066', border: '#ff3300' } },
+    { title: 'The Power of kiidzkaze', content: 'Leading the charge in innovation!', colorScheme: { bg: '#ffcc00', color: '#33ccff', border: '#ff0033' } },
+    { title: 'kiidzkaze Is Here', content: 'Be part of the movement that’s changing the world!', colorScheme: { bg: '#3300ff', color: '#ff33cc', border: '#00ff66' } },
+    { title: 'Join the kiidzkaze Revolution', content: 'Innovate. Create. Lead.', colorScheme: { bg: '#ff0033', color: '#33ccff', border: '#00ff66' } },
+    { title: 'kiidzkaze Vision', content: 'Where the future begins.', colorScheme: { bg: '#6600cc', color: '#ffcc00', border: '#33ff33' } },
+    { title: 'Change Your Life with kiidzkaze', content: 'Revolutionize your world!', colorScheme: { bg: '#ff6600', color: '#00ff33', border: '#00ccff' } },
+    { title: 'Experience the kiidzkaze Difference', content: 'Innovative products for a dynamic future!', colorScheme: { bg: '#00ccff', color: '#ff9900', border: '#ff0033' } },
+    { title: 'kiidzkaze Products', content: 'Quality and innovation in every detail!', colorScheme: { bg: '#00ff66', color: '#cc00cc', border: '#ff3300' } },
+    { title: 'Empower Your Future with kiidzkaze', content: 'Transform your world with us!', colorScheme: { bg: '#ff33cc', color: '#00ff66', border: '#ff6600' } },
+    { title: 'kiidzkaze: Pioneering the Future', content: 'We’re the future of tech!', colorScheme: { bg: '#ff9900', color: '#66ff00', border: '#ff0033' } },
+    { title: 'The Power of Innovation', content: 'With kiidzkaze, anything is possible!', colorScheme: { bg: '#ff0000', color: '#6600ff', border: '#00ccff' } },
+    { title: 'Become a Leader with kiidzkaze', content: 'Join the tech leaders of tomorrow!', colorScheme: { bg: '#00ff00', color: '#ff0066', border: '#ffff00' } },
+    { title: 'Tech at its Best', content: 'With kiidzkaze, the best is yet to come!', colorScheme: { bg: '#33cc99', color: '#ff0066', border: '#ffcc00' } },
+    { title: 'kiidzkaze - Shaping the Future', content: 'Join us as we create the future of tech!', colorScheme: { bg: '#6600cc', color: '#ff3300', border: '#ff99cc' } },
+    { title: 'Empowering the Next Generation', content: 'With kiidzkaze, you’re the future!', colorScheme: { bg: '#ff0066', color: '#33ff66', border: '#6600ff' } },
+    { title: 'kiidzkaze’s Vision for Tomorrow', content: 'Shaping the future with bold ideas!', colorScheme: { bg: '#ff3300', color: '#00ffcc', border: '#00ff00' } },
+    { title: 'kiidzkaze: The Game Changer', content: 'The future of technology starts here!', colorScheme: { bg: '#ffff00', color: '#ff0066', border: '#6600ff' } },
+    { title: 'Innovating with kiidzkaze', content: 'Discover the possibilities with us!', colorScheme: { bg: '#33ff99', color: '#ff6600', border: '#ff0033' } },
+    { title: 'Unlock the Future with kiidzkaze', content: 'Join a global leader in innovation!', colorScheme: { bg: '#ff9900', color: '#00ccff', border: '#6600ff' } },
+    { title: 'kiidzkaze: Leading the Charge', content: 'Join the forefront of innovation!', colorScheme: { bg: '#ff0066', color: '#ffff00', border: '#6600cc' } },
+    { title: 'kiidzkaze – Empowering You', content: 'Technology that changes lives!', colorScheme: { bg: '#ff33cc', color: '#00cc99', border: '#6600ff' } },
+    { title: 'kiidzkaze Future Ready', content: 'Be ready for tomorrow with kiidzkaze!', colorScheme: { bg: '#ff0033', color: '#33ff00', border: '#ff6600' } },
+    { title: 'freakbaIt – Unleash Creativity', content: 'Where innovation meets madness!', colorScheme: { bg: '#ff9900', color: '#33ff00', border: '#00ff66' } },
+    { title: 'Get Freaky with freakbaIt', content: 'Innovation, redefined!', colorScheme: { bg: '#ff33cc', color: '#00cc00', border: '#33ff00' } },
+    { title: 'Lead the Future with freakbaIt', content: 'Join the creative revolution!', colorScheme: { bg: '#ff6600', color: '#0000cc', border: '#cc00ff' } },
+    { title: 'freakbaIt Tech', content: 'Mad innovations for mad people!', colorScheme: { bg: '#33cc99', color: '#ff6600', border: '#0000ff' } },
+    { title: 'Unconventional Creativity', content: 'freakbaIt is changing everything!', colorScheme: { bg: '#ff0066', color: '#6600cc', border: '#33ff00' } },
+    { title: 'Unleash the Freak', content: 'With freakbaIt, there are no limits!', colorScheme: { bg: '#33ff00', color: '#ff6600', border: '#cc00cc' } },
+    { title: 'freakbaIt – Bold and Unpredictable', content: 'Join the unpredictable world of creativity!', colorScheme: { bg: '#ff3300', color: '#00ccff', border: '#ff6600' } },
+    { title: 'Explore Creativity with freakbaIt', content: 'Where ideas come to life!', colorScheme: { bg: '#ff0033', color: '#6600ff', border: '#ff6600' } },
+    { title: 'freakbaIt – Beyond Innovation', content: 'Creating things you never thought possible!', colorScheme: { bg: '#00ccff', color: '#ff0000', border: '#33ff33' } },
+    { title: 'freakbaIt Leads', content: 'Unleashing creativity in every way possible!', colorScheme: { bg: '#ff6600', color: '#33ccff', border: '#ff0033' } },
+    { title: 'Revolutionize with freakbaIt', content: 'Redefining creativity for the next generation!', colorScheme: { bg: '#33cc99', color: '#ff0033', border: '#6600ff' } },
+    { title: 'freakbaIt Vision', content: 'See the world in a different way!', colorScheme: { bg: '#ff33cc', color: '#6600ff', border: '#33ff00' } },
+    { title: 'Unconventional Tech', content: 'The future is freaky with freakbaIt!', colorScheme: { bg: '#6600cc', color: '#ff9900', border: '#33ff33' } },
+    { title: 'The Freaky Future', content: 'Innovative ideas for bold creators!', colorScheme: { bg: '#ff0033', color: '#00ff66', border: '#ff9900' } },
+    { title: 'Go Freaky with freakbaIt', content: 'Challenge the norm with our tech!', colorScheme: { bg: '#ff9900', color: '#00ff00', border: '#ff33cc' } },
+    { title: 'freakbaIt – Dare to Be Different', content: 'Create your own path!', colorScheme: { bg: '#33ff33', color: '#ff6600', border: '#cc00cc' } },
+    { title: 'Create with freakbaIt', content: 'Innovation, creativity, and madness!', colorScheme: { bg: '#ff66cc', color: '#33ccff', border: '#ff0033' } },
+    { title: 'freakbaIt’s Next Level', content: 'Push your ideas to the extreme!', colorScheme: { bg: '#6600ff', color: '#ff0066', border: '#33cc33' } },
+    { title: 'Join the freakbaIt Movement', content: 'Let’s redefine what’s possible!', colorScheme: { bg: '#ff3300', color: '#00ff33', border: '#6600cc' } },
+    { title: 'freakbaIt – Bold Creativity', content: 'Create, innovate, disrupt!', colorScheme: { bg: '#ff6600', color: '#ff0033', border: '#33ccff' } },
+    { title: 'Tech Meets Creativity with freakbaIt', content: 'Let your imagination run wild!', colorScheme: { bg: '#00ccff', color: '#ff3300', border: '#33ff00' } },
+    { title: 'Push Boundaries with freakbaIt', content: 'Tech that redefines everything!', colorScheme: { bg: '#ff0066', color: '#00ff66', border: '#ff3300' } },
+    { title: 'freakbaIt – The Next Generation', content: 'Breaking barriers and changing the world!', colorScheme: { bg: '#33ccff', color: '#ff3300', border: '#ff0066' } },
+    { title: 'Unleash Potential with freakbaIt', content: 'Tech that’s beyond normal!', colorScheme: { bg: '#ff0033', color: '#ff9900', border: '#33ccff' } },
+    { title: 'freakbaIt – Create the Unimaginable', content: 'Break the mold with every idea!', colorScheme: { bg: '#ff33cc', color: '#33ccff', border: '#6600cc' } },
+    { title: 'freakbaIt – Defy Limits', content: 'Pushing the boundaries of creativity and tech!', colorScheme: { bg: '#6a1b9a', color: '#ff7043', border: '#26a69a' } },
+    { title: 'Innovation Unbound', content: 'At freakbaIt, anything is possible!', colorScheme: { bg: '#43a047', color: '#fbc02d', border: '#8e24aa' } },
+    { title: 'freakbaIt – Your Creative Playground', content: 'Explore ideas beyond imagination!', colorScheme: { bg: '#00838f', color: '#ffb300', border: '#9e1b32' } },
+    { title: 'Experience the Future with freakbaIt', content: 'The technology that shapes tomorrow!', colorScheme: { bg: '#b71c1c', color: '#512da8', border: '#0288d1' } },
+    { title: 'freakbaIt – Unstoppable Innovation', content: 'Creating the unimaginable, one idea at a time!', colorScheme: { bg: '#01579b', color: '#d32f2f', border: '#7b1fa2' } },
+    { title: 'Breaking Boundaries with freakbaIt', content: 'Where the impossible becomes real!', colorScheme: { bg: '#00bcd4', color: '#3f51b5', border: '#4caf50' } },
+    { title: 'freakbaIt – Think Differently', content: 'Join the innovators who challenge norms!', colorScheme: { bg: '#ff4081', color: '#00e5ff', border: '#7c4dff' } },
+    { title: 'The Creative Force of freakbaIt', content: 'Building tomorrow with bold ideas today!', colorScheme: { bg: '#f57c00', color: '#1976d2', border: '#388e3c' } },
+    { title: 'Shape the Future with freakbaIt', content: 'Explore innovation like never before!', colorScheme: { bg: '#0288d1', color: '#8e24aa', border: '#f44336' } },
+    { title: 'freakbaIt – Create the Unthinkable', content: 'Bold ideas, disruptive tech!', colorScheme: { bg: '#9c27b0', color: '#009688', border: '#ff9800' } },
+    { title: 'Revolutionize with freakbaIt', content: 'Tech that transforms everything!', colorScheme: { bg: '#673ab7', color: '#4caf50', border: '#00bcd4' } },
+    { title: 'freakbaIt: Redefine Your World', content: 'Innovation that breaks all the rules!', colorScheme: { bg: '#2196f3', color: '#c2185b', border: '#8bc34a' } },
+    { title: 'freakbaIt: Visionary Creativity', content: 'Empowering the next generation of creators!', colorScheme: { bg: '#c2185b', color: '#00bcd4', border: '#607d8b' } },
+    { title: 'Future in Focus with freakbaIt', content: 'The creative tech you need for tomorrow!', colorScheme: { bg: '#388e3c', color: '#fbc02d', border: '#9e1b32' } },
+    { title: 'freakbaIt – Technology that Inspires', content: 'Transform ideas into reality!', colorScheme: { bg: '#fbc02d', color: '#8e24aa', border: '#004d40' } },
+    { title: 'Be the Change with freakbaIt', content: 'Redefining the future with creative tech!', colorScheme: { bg: '#00c853', color: '#8c9eff', border: '#ff6f00' } },
+    { title: 'Unleash Your Potential with freakbaIt', content: 'Create, disrupt, and innovate!', colorScheme: { bg: '#00e5ff', color: '#f44336', border: '#9e9d24' } },
+    { title: 'freakbaIt – The Future is Now', content: 'Redefine what’s possible with us!', colorScheme: { bg: '#9c27b0', color: '#4caf50', border: '#c2185b' } },
+    { title: 'freakbaIt – Create Boldly', content: 'Where ideas take flight and innovation thrives!', colorScheme: { bg: '#ff5722', color: '#4caf50', border: '#7b1fa2' } },
+    { title: 'Break Free with freakbaIt', content: 'Challenge the status quo with us!', colorScheme: { bg: '#ff4081', color: '#009688', border: '#607d8b' } },
+    { title: 'Disrupt with freakbaIt', content: 'Creating tomorrow’s solutions today!', colorScheme: { bg: '#388e3c', color: '#00c853', border: '#ff9800' } },
+    { title: 'Revolutionary Tech with freakbaIt', content: 'Innovation that transforms the world!', colorScheme: { bg: '#0288d1', color: '#ff8f00', border: '#d32f2f' } },
+    { title: 'Be a Pioneer with freakbaIt', content: 'Take the lead in creative tech!', colorScheme: { bg: '#ffb300', color: '#4caf50', border: '#00bcd4' } },
+    { title: 'freakbaIt: The Ultimate Creative Tech', content: 'Innovation with endless possibilities!', colorScheme: { bg: '#7b1fa2', color: '#f44336', border: '#8e24aa' } },
+    { title: 'Empower Your Imagination with freakbaIt', content: 'Let your creativity soar!', colorScheme: { bg: '#ffeb3b', color: '#009688', border: '#ff5722' } },
+    { title: 'freakbaIt: Reimagine the Future', content: 'The future is yours to create with us!', colorScheme: { bg: '#8e24aa', color: '#ff7043', border: '#00e5ff' } },
+    { title: 'Innovative Tech from freakbaIt', content: 'Make the impossible possible with us!', colorScheme: { bg: '#004d40', color: '#f44336', border: '#9c27b0' } },
+    { title: 'Create the Future with freakbaIt', content: 'Tech that sets you free!', colorScheme: { bg: '#9e1b32', color: '#ff6f00', border: '#0288d1' } },
+    { title: 'freakbaIt – Disrupt the Norm', content: 'Innovative solutions for a new era!', colorScheme: { bg: '#d32f2f', color: '#8e24aa', border: '#ff9800' } },
+    { title: 'Beyond Boundaries with freakbaIt', content: 'Tech that challenges conventions!', colorScheme: { bg: '#3f51b5', color: '#fbc02d', border: '#00e5ff' } },
+    { title: 'Innovate Boldly with freakbaIt', content: 'Join us at the forefront of innovation!', colorScheme: { bg: '#ff9800', color: '#9c27b0', border: '#8bc34a' } },
+    { title: 'Tech that Breaks Barriers', content: 'freakbaIt creates the next frontier!', colorScheme: { bg: '#b71c1c', color: '#512da8', border: '#388e3c' } },
+    { title: 'The Future is Creative with freakbaIt', content: 'Tech reimagined for the creative mind!', colorScheme: { bg: '#7b1fa2', color: '#f57c00', border: '#00c853' } },
+    { title: 'Create Unstoppable Tech', content: 'With freakbaIt, your ideas can change the world!', colorScheme: { bg: '#9e1b32', color: '#0288d1', border: '#ff9800' } },
+    { title: 'Revolutionize with freakbaIt', content: 'Innovate fearlessly!', colorScheme: { bg: '#f44336', color: '#ff5722', border: '#512da8' } },
+    { title: 'Disrupt the Ordinary', content: 'freakbaIt makes extraordinary possible!', colorScheme: { bg: '#01579b', color: '#ffb300', border: '#9c27b0' } },
+    { title: 'freakbaIt: Change the Game', content: 'Leading the charge in creative tech!', colorScheme: { bg: '#673ab7', color: '#ff4081', border: '#4caf50' } },
+    { title: 'Challenge the Norm with freakbaIt', content: 'Push the boundaries with our innovative tech!', colorScheme: { bg: '#f57c00', color: '#009688', border: '#4caf50' } },
 
 ];
 
