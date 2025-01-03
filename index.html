@@ -34,6 +34,14 @@
             max-width: 100%;
             height: auto;
         }
+        .flashy {
+            animation: flash 1s infinite;
+        }
+        @keyframes flash {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -82,7 +90,32 @@
             { title: 'Exclusive Membership', content: 'Get exclusive membership!', colorScheme: { bg: '#ff6347', color: '#ffffff', border: '#ff4500' } },
             { title: 'New Update', content: 'Check out our new update!', colorScheme: { bg: '#ff4500', color: '#ffffff', border: '#ff6347' } },
             { title: 'Special Offer', content: 'Get special offer now!', colorScheme: { bg: '#ff6347', color: '#ffffff', border: '#ff4500' } },
-            { title: 'Follow us on Facebook', content: 'Stay connected on Facebook!', image: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg', colorScheme: { bg: '#ffffff', color: '#1877f2', border: '#1877f2' } }
+            { title: 'Follow us on Facebook', content: 'Stay connected on Facebook!', image: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg', colorScheme: { bg: '#ffffff', color: '#1877f2', border: '#1877f2' } },
+            { title: 'Crazy Discounts', content: 'Get crazy discounts now!', colorScheme: { bg: '#ff0000', color: '#00ff00', border: '#0000ff' } },
+            { title: 'Amazing Deals', content: 'Don’t miss out on amazing deals!', colorScheme: { bg: '#00ff00', color: '#ff0000', border: '#0000ff' } },
+            { title: 'Special Savings', content: 'Save big on your next purchase!', colorScheme: { bg: '#0000ff', color: '#ff00ff', border: '#00ff00' } },
+            { title: 'Exclusive Offer', content: 'Exclusive offer just for you!', colorScheme: { bg: '#ff00ff', color: '#0000ff', border: '#00ff00' } },
+            { title: 'Limited Time Only', content: 'Limited time offer, act fast!', colorScheme: { bg: '#ff0000', color: '#0000ff', border: '#00ff00' } },
+            { title: 'Hurry Up!', content: 'Hurry up, offer ends soon!', colorScheme: { bg: '#0000ff', color: '#ff0000', border: '#00ff00' } },
+            { title: 'Don’t Miss Out', content: 'Don’t miss out on this deal!', colorScheme: { bg: '#00ff00', color: '#ff0000', border: '#0000ff' } },
+            { title: 'Special Deal', content: 'Special deal just for you!', colorScheme: { bg: '#ff00ff', color: '#00ff00', border: '#0000ff' } },
+            { title: 'Act Now', content: 'Act now before it’s too late!', colorScheme: { bg: '#0000ff', color: '#ff00ff', border: '#00ff00' } },
+            { title: 'Save Now', content: 'Save money on your next purchase!', colorScheme: { bg: '#ff0000', color: '#00ff00', border: '#0000ff' } },
+            { title: 'New Deals', content: 'Check out our new deals!', colorScheme: { bg: '#00ff00', color: '#ff00ff', border: '#0000ff' } },
+            { title: 'Limited Offer', content: 'Limited offer available now!', colorScheme: { bg: '#ff00ff', color: '#0000ff', border: '#00ff00' } },
+            { title: 'Special Discount', content: 'Special discount available now!', colorScheme: { bg: '#ff0000', color: '#0000ff', border: '#00ff00' } },
+            { title: 'New Products', content: 'Check out our new products!', colorScheme: { bg: '#00ff00', color: '#ff0000', border: '#0000ff' } },
+            { title: 'Flash Sale', content: 'Flash sale, hurry up!', colorScheme: { bg: '#0000ff', color: '#ff00ff', border: '#00ff00' }, flashy: true },
+            { title: 'Big Savings', content: 'Big savings on all items!', colorScheme: { bg: '#ff00ff', color: '#0000ff', border: '#00ff00' } },
+            { title: 'Exclusive Deals', content: 'Exclusive deals available now!', colorScheme: { bg: '#ff0000', color: '#00ff00', border: '#0000ff' } },
+            { title: 'Special Offers', content: 'Special offers just for you!', colorScheme: { bg: '#00ff00', color: '#ff0000', border: '#0000ff' } },
+            { title: 'Limited Time Deals', content: 'Limited time deals available now!', colorScheme: { bg: '#0000ff', color: '#ff00ff', border: '#00ff00' } },
+            { title: 'Amazing Savings', content: 'Amazing savings on all items!', colorScheme: { bg: '#ff00ff', color: '#0000ff', border: '#00ff00' } },
+            { title: 'Act Fast', content: 'Act fast before it’s too late!', colorScheme: { bg: '#ff0000', color: '#0000ff', border: '#00ff00' } },
+            { title: 'Save Big', content: 'Save big on your next purchase!', colorScheme: { bg: '#00ff00', color: '#ff00ff', border: '#0000ff' } },
+            { title: 'Limited Time', content: 'Limited time offer!', colorScheme: { bg: '#0000ff', color: '#ff0000', border: '#00ff00' }, flashy: true },
+            { title: 'Hurry Now', content: 'Hurry now before it’s gone!', colorScheme: { bg: '#ff00ff', color: '#00ff00', border: '#0000ff' } },
+            { title: 'Exclusive Savings', content: 'Exclusive savings available now!', colorScheme: { bg: '#ff0000', color: '#0000ff', border: '#00ff00' }, flashy: true },
         ];
 
         function getRandomTime(min, max) {
@@ -120,6 +153,12 @@
             popup.style.left = `${position.x}px`;
             popup.style.top = `${position.y}px`;
 
+            if (ad.flashy) {
+                popup.classList.add('flashy');
+            } else {
+                popup.classList.remove('flashy');
+            }
+
             document.getElementById("overlay").style.display = "block";
             popup.style.display = "block";
         }
@@ -135,7 +174,7 @@
         }
 
         function scheduleNextPopup() {
-            const randomTime = getRandomTime(10, 100);
+            const randomTime = getRandomTime(10, 11);
             setTimeout(showPopup, randomTime);
         }
 
