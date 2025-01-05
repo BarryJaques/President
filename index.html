@@ -27,21 +27,94 @@
       height: auto; 
       opacity: 0;
       transform: scale(0);
-      animation: spreadAndFade 10s ease-in-out infinite;
+      animation: spreadAndFade 100s ease-in-out infinite;
+      z-index: 1;
 
     }
     @keyframes spreadAndFade {
       0% {
         opacity: 0;
-        transform: scale(0); 
+        transform: scale(0);
       }
-      50% {
+      5% {
         opacity: 1;
         transform: scale(2);
       }
+      10% {
+        opacity: 0;
+        transform: scale(1);
+      }
+      15% {
+        opacity: 1;
+        transform: scale(3);
+      }
+      20% {
+        opacity: 0;
+        transform: scale(2);
+      }
+      25% {
+        opacity: 1;
+        transform: scale(4);
+      }
+      30% {
+        opacity: 0;
+        transform: scale(3);
+      }
+      35% {
+        opacity: 1;
+        transform: scale(5);
+      }
+      40% {
+        opacity: 0;
+        transform: scale(4);
+      }
+      45% {
+        opacity: 1;
+        transform: scale(6);
+      }
+      50% {
+        opacity: 0;
+        transform: scale(5);
+      }
+      55% {
+        opacity: 1;
+        transform: scale(7);
+      }
+      60% {
+        opacity: 0;
+        transform: scale(6);
+      }
+      65% {
+        opacity: 1;
+        transform: scale(8);
+      }
+      70% {
+        opacity: 0;
+        transform: scale(7);
+      }
+      75% {
+        opacity: 1;
+        transform: scale(9);
+      }
+      80% {
+        opacity: 0;
+        transform: scale(8);
+      }
+      85% {
+        opacity: 1;
+        transform: scale(10);
+      }
+      90% {
+        opacity: 0;
+        transform: scale(9);
+      }
+      95% {
+        opacity: 1;
+        transform: scale(11);
+      }
       100% {
         opacity: 0;
-        transform: scale(1); 
+        transform: scale(10);
       }
     }
         h1 {
@@ -76,6 +149,7 @@ h3 {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
             max-width: 45%;
+            z-index: 2;
         }
 
         .center-box h2 {
@@ -84,6 +158,7 @@ h3 {
             font-family: Georgia, 'Times New Roman', Times, serif;
             word-wrap: break-word;
             overflow-wrap: break-word;
+            z-index: 2;
         }
 
         .popup {
