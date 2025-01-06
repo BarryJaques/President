@@ -381,6 +381,9 @@
             left: 50%;
             transform: translateX(-50%);
         }
+        .shalala {
+  filter: blur(10px);
+}
 h3 {
     position: fixed;
     top: 0;
@@ -464,6 +467,61 @@ h4 {
     font-size: 16px; 
     color: #a00000; 
 }
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  5% { transform: translate(2px, 0); }
+  10% { transform: translate(-6px, 0); }
+  15% { transform: translate(4px, 0); }
+  20% { transform: translate(-3px, 0); }
+  25% { transform: translate(7px, 0); }
+  30% { transform: translate(-2px, 0); }
+  35% { transform: translate(8px, 0); }
+  40% { transform: translate(-4px, 0); }
+  45% { transform: translate(6px, 0); }
+  50% { transform: translate(-5px, 0); }
+  55% { transform: translate(9px, 0); }
+  60% { transform: translate(-8px, 0); }
+  65% { transform: translate(3px, 0); }
+  70% { transform: translate(-9px, 0); }
+  75% { transform: translate(6px, 0); }
+  80% { transform: translate(-10px, 0); }
+  85% { transform: translate(5px, 0); }
+  90% { transform: translate(-7px, 0); }
+  95% { transform: translate(4px, 0); }
+  100% { transform: translate(5px, 0); }
+}
+
+.shake {
+  animation: shake 0.5s infinite;
+}
+
+.Niaaaa {
+  animation: NiaaaaModeUltra 0.25s infinite;
+}
+
+@keyframes NiaaaaModeUltra {
+  0% { transform: translate(0, 0); }
+  5% { transform: translate(15px, 0); }
+  10% { transform: translate(-20px, 0); }
+  15% { transform: translate(30px, 0); }
+  20% { transform: translate(-40px, 0); }
+  25% { transform: translate(50px, 0); }
+  30% { transform: translate(-25px, 0); }
+  35% { transform: translate(35px, 0); }
+  40% { transform: translate(-50px, 0); }
+  45% { transform: translate(40px, 0); }
+  50% { transform: translate(-60px, 0); }
+  55% { transform: translate(70px, 0); }
+  60% { transform: translate(-55px, 0); }
+  65% { transform: translate(60px, 0); }
+  70% { transform: translate(-45px, 0); }
+  75% { transform: translate(80px, 0); }
+  80% { transform: translate(-70px, 0); }
+  85% { transform: translate(90px, 0); }
+  90% { transform: translate(-100px, 0); }
+  95% { transform: translate(110px, 0); }
+  100% { transform: translate(-120px, 0); }
+}
 
 .racistpopup button {
     padding: 10px 20px;
@@ -499,24 +557,26 @@ h4 {
         }
 
         .info-box, .companies-box {
-            display: none;
-            position: fixed;
-            top: 50px;
-            right: 10px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 101234234567890987654323456789876543234567898765432345678987654301;
-            width: 300px;
-            height: 200px; 
-            overflow-y: scroll; 
-        }
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 101234234567890987654323456789876543234567898765432345678987654301;
+    width: 300px;
+    height: 200px; 
+    overflow-y: scroll; 
+}
 
-        .companies-box {
-            top: 300px; 
-            z-index: 129292828298198119281891891289128982198182891982198218921981989821982191988998219821891298;
-        }
+
+
+.companies-box {
+    top: 300px; 
+    z-index: 129292828298198119281891891289128982198182891982198218921981989821982191988998219821891298;
+}
 
         .instagram-button {
             position: fixed;
@@ -570,11 +630,22 @@ h4 {
 
 @keyframes alarm-flash {
   0%, 100% {
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.66); 
   }
   50% {
-    background-color: yellow;
+    background-color: rgba(255, 255, 0, 0.66); 
   }
+}
+
+.alarmed-mode-overlay {
+  animation: alarm-flash 0.1s infinite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1345654500%;
+  height: 10045678%;
+  z-index: 2147483647;
+  pointer-events: none;
 }
 
 .flipped-mode {
@@ -587,8 +658,8 @@ h4 {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 165%;
+  height: 1000%;
   z-index: 100000000000000000000000000437544544534539387438743894379853648957394534795873498579384759384579348578934000;
   pointer-events: none;
 }
@@ -730,6 +801,18 @@ h4 {
       <br />
       <label>
         <input type="checkbox" id="tvStaticMode" /> TV Static Mode
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" id="shakeMode" /> Headache
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" id="NiaaaaModeUltra" /> ???  
+      </label>   
+       <br />
+      <label>
+        <input type="checkbox" id="shalalaMode" /> Blurreded  
       </label>
     </div>
   </div>
@@ -1230,11 +1313,52 @@ function scheduleNextRacistPopup() {
   settingsBox.style.display = settingsBox.style.display === 'block' ? 'none' : 'block';
 });
 
+document.getElementById('shakeMode').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    document.body.classList.add('shake');
+    e.target.disabled = true;
+    alert("Shake Mode is now permanent!");
+  }
+});
+
+
+
+document.getElementById('NiaaaaModeUltra').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    document.body.classList.add('Niaaaa');
+  } else {
+    document.body.classList.remove('Niaaaa');
+  }
+});
+
+
 document.getElementById('alarmMode').addEventListener('change', (e) => {
   if (e.target.checked) {
     document.body.classList.add('alarm-mode');
+    document.body.classList.add('alarmed-mode');
   } else {
-    document.body.classList.remove('alarm-mode');
+  }
+});
+document.getElementById('shalalaMode').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    document.body.classList.add('shalala');
+  } else {
+    document.body.classList.remove('shalala');
+  }
+});
+document.getElementById('alarmMode').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    document.body.classList.add('alarm-mode');
+    document.body.classList.add('alarmed-mode');
+
+    const overlay = document.createElement('div');
+    overlay.classList.add('alarmed-mode-overlay');
+    overlay.setAttribute('id', 'alarmedOverlay');
+    document.body.appendChild(overlay);
+
+    e.target.disabled = true;
+
+    alert("Alarmed Mode is now permanent and cannot be disabled.");
   }
 });
 
@@ -1248,15 +1372,12 @@ document.getElementById('flippedMode').addEventListener('change', (e) => {
 
 document.getElementById('tvStaticMode').addEventListener('change', (e) => {
   if (e.target.checked) {
-    const staticOverlay = document.createElement('div');
-    staticOverlay.classList.add('tv-static-mode');
-    staticOverlay.setAttribute('id', 'tvStaticOverlay');
-    document.body.appendChild(staticOverlay);
-  } else {
-    const staticOverlay = document.getElementById('tvStaticOverlay');
-    if (staticOverlay) {
-      staticOverlay.remove();
-    }
+    const overlay = document.createElement('div');
+    overlay.classList.add('tv-static-mode');
+    overlay.setAttribute('id', 'tvStaticOverlay');
+    document.body.appendChild(overlay);
+    e.target.disabled = true;
+    alert("Stay on the website for 2 hours for a surprise!!!!!!!!.");
   }
 });
 </script>
