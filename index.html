@@ -758,6 +758,11 @@ h4 {
   object-fit: cover; 
 }
 
+.blurred-text {
+  filter: blur(5px); 
+  transition: filter 0.5s ease; 
+}
+
 .image-ad:hover {
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
 }
@@ -833,6 +838,13 @@ h4 {
        <br />
       <label>
         <input type="checkbox" id="shalalaMode" /> Blurreded  
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" id="textMode" /> Craze Text MOUD!
+      </label>
+      <label>
+        <input type="checkbox" id="TEXTMode" /> This is fine!
       </label>
     </div>
   </div>
@@ -1333,6 +1345,68 @@ function scheduleNextRacistPopup() {
     <p id="visitorDisplay">Website Visitors: 0</p>
     <h1>Barry Jaques</h1>
 </div>
+
+<script>
+  function randomColor() {
+  return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+}
+
+document.getElementById('textMode').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    textColorInterval = setInterval(() => {
+      const textElements = document.querySelectorAll('body, p, h1, h2, h3, h4, h5, h6, div, span, a');
+      textElements.forEach(element => {
+        element.style.color = randomColor();
+      });
+    }, 250);
+
+    e.target.disabled = true;
+
+    alert("Text Mode is now permanent!");
+  }
+});
+function blurText() {
+  const textElements = document.querySelectorAll('body, p, h1, h2, h3, h4, h5, h6, div, span, a');
+  textElements.forEach(element => {
+    element.classList.add('blurred-text');
+  });
+
+  setTimeout(() => {
+    textElements.forEach(element => {
+      element.classList.remove('blurred-text');
+    });
+  }, 7630); 
+}
+document.getElementById('TEXTMode').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    const textColorInterval = setInterval(() => {
+      const textElements = document.querySelectorAll('body, p, h1, h2, h3, h4, h5, h6, div, span, a');
+      textElements.forEach(element => {
+        element.style.color = randomColor();
+      });
+    }, 100);
+
+    const blurInterval = setInterval(blurText, 1283.43463464); 
+
+    e.target.disabled = true;
+
+    alert("me frfr");
+  }
+});
+
+function resetTEXTMode() {
+  clearInterval(textColorInterval);  
+  clearInterval(blurInterval);       
+  document.getElementById('TEXTMode').disabled = false; 
+  alert("neils lifgren.");
+}
+
+function resetTextMode() {
+  clearInterval(textColorInterval);
+  document.getElementById('textMode').disabled = false; 
+  alert("Text Mode reset.");
+}
+</script>
 <div class="racistpopup" id="racistPopup">
     <p>VOTE BARRY JAQUES NOW!</p>
     <button onclick="closeRacistPopup()">Close</button>
