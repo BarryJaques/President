@@ -38,8 +38,114 @@
       transform: scale(0);
       animation: spreadAndFade 200s ease-in-out infinite;
       z-index: 1;
-
+ 
     }
+.potato-mode {
+  animation: potatisMode 10s infinite;
+}
+@keyframes potatisMode {
+  0% { scale: 0.16; }
+  1% { scale: 0.35; }
+  2% { scale: 0.27; }
+  3% { scale: 0.50; }
+  4% { scale: 0.43; }
+  5% { scale: 0.38; }
+  6% { scale: 0.62; }
+  7% { scale: 0.47; }
+  8% { scale: 0.53; }
+  9% { scale: 0.59; }
+  10% { scale: 0.36; }
+  11% { scale: 0.41; }
+  12% { scale: 0.55; }
+  13% { scale: 0.60; }
+  14% { scale: 0.34; }
+  15% { scale: 0.48; }
+  16% { scale: 0.50; }
+  17% { scale: 0.52; }
+  18% { scale: 0.61; }
+  19% { scale: 0.49; }
+  20% { scale: 0.44; }
+  21% { scale: 0.39; }
+  22% { scale: 0.54; }
+  23% { scale: 0.46; }
+  24% { scale: 0.40; }
+  25% { scale: 0.37; }
+  26% { scale: 0.58; }
+  27% { scale: 0.51; }
+  28% { scale: 0.43; }
+  29% { scale: 0.45; }
+  30% { scale: 0.42; }
+  31% { scale: 0.57; }
+  32% { scale: 0.49; }
+  33% { scale: 0.39; }
+  34% { scale: 0.41; }
+  35% { scale: 0.60; }
+  36% { scale: 0.38; }
+  37% { scale: 0.47; }
+  38% { scale: 0.59; }
+  39% { scale: 0.51; }
+  40% { scale: 0.56; }
+  41% { scale: 0.37; }
+  42% { scale: 0.42; }
+  43% { scale: 0.48; }
+  44% { scale: 0.61; }
+  45% { scale: 0.50; }
+  46% { scale: 0.40; }
+  47% { scale: 0.53; }
+  48% { scale: 0.43; }
+  49% { scale: 0.52; }
+  50% { scale: 0.45; }
+  51% { scale: 0.58; }
+  52% { scale: 0.55; }
+  53% { scale: 0.46; }
+  54% { scale: 0.41; }
+  55% { scale: 0.60; }
+  56% { scale: 0.39; }
+  57% { scale: 0.42; }
+  58% { scale: 0.62; }
+  59% { scale: 0.48; }
+  60% { scale: 0.37; }
+  61% { scale: 0.50; }
+  62% { scale: 0.44; }
+  63% { scale: 0.40; }
+  64% { scale: 0.49; }
+  65% { scale: 0.55; }
+  66% { scale: 0.36; }
+  67% { scale: 0.47; }
+  68% { scale: 0.61; }
+  69% { scale: 0.43; }
+  70% { scale: 0.52; }
+  71% { scale: 0.58; }
+  72% { scale: 0.46; }
+  73% { scale: 0.37; }
+  74% { scale: 0.41; }
+  75% { scale: 0.39; }
+  76% { scale: 0.59; }
+  77% { scale: 0.45; }
+  78% { scale: 0.54; }
+  79% { scale: 0.49; }
+  80% { scale: 0.42; }
+  81% { scale: 0.47; }
+  82% { scale: 0.62; }
+  83% { scale: 0.50; }
+  84% { scale: 0.38; }
+  85% { scale: 0.44; }
+  86% { scale: 0.60; }
+  87% { scale: 0.36; }
+  88% { scale: 0.51; }
+  89% { scale: 0.43; }
+  90% { scale: 0.45; }
+  91% { scale: 0.56; }
+  92% { scale: 0.58; }
+  93% { scale: 0.48; }
+  94% { scale: 0.40; }
+  95% { scale: 0.46; }
+  96% { scale: 0.55; }
+  97% { scale: 0.38; }
+  98% { scale: 0.42; }
+  99% { scale: 0.61; }
+  100% { scale: 0.50; }
+}
     @keyframes spreadAndFade {
       0% {
         opacity: 0;
@@ -374,6 +480,159 @@
         transform: scale(40);
       }
     }
+
+    @keyframes random-font {
+  0% { font-family: 'Arial', sans-serif; }
+  5% { font-family: 'Courier New', monospace; }
+  10% { font-family: 'Comic Sans MS', sans-serif; }
+  15% { font-family: 'Georgia', serif; }
+  20% { font-family: 'Times New Roman', serif; }
+  25% { font-family: 'Verdana', sans-serif; }
+  30% { font-family: 'Tahoma', sans-serif; }
+  35% { font-family: 'Trebuchet MS', sans-serif; }
+  40% { font-family: 'Impact', sans-serif; }
+  45% { font-family: 'Lucida Console', monospace; }
+  50% { font-family: 'Palatino Linotype', serif; }
+  55% { font-family: 'Comic Sans', sans-serif; }
+  60% { font-family: 'Arial Black', sans-serif; }
+  65% { font-family: 'Courier', monospace; }
+  70% { font-family: 'Brush Script MT', cursive; }
+  75% { font-family: 'Futura', sans-serif; }
+  80% { font-family: 'Helvetica', sans-serif; }
+  85% { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  90% { font-family: 'Consolas', monospace; }
+  95% { font-family: 'Merriweather', serif; }
+  100% { font-family: 'Lobster', cursive; }
+}
+
+.random-font {
+  animation: random-font 1s infinite;
+}
+    .center-gif {
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(0, 0); 
+  z-index: 999999911111111123456787777777777777777777777777777777777777777777777777779; 
+  pointer-events: none; 
+  animation: aiakakakka 100s infinite;
+}
+
+@keyframes aiakakakka {
+  1% { scale: 3; }
+  2% { scale: 2.8; }
+  3% { scale: 3.2; }
+  4% { scale: 2.7; }
+  5% { scale: 3.4; }
+  6% { scale: 2.9; }
+  7% { scale: 3.1; }
+  8% { scale: 2.6; }
+  9% { scale: 3.3; }
+  10% { scale: 2.5; }
+  11% { scale: 3.2; }
+  12% { scale: 2.8; }
+  13% { scale: 3.4; }
+  14% { scale: 2.7; }
+  15% { scale: 3.3; }
+  16% { scale: 3.0; }
+  17% { scale: 2.9; }
+  18% { scale: 3.1; }
+  19% { scale: 2.6; }
+  20% { scale: 3.4; }
+  21% { scale: 2.7; }
+  22% { scale: 3.2; }
+  23% { scale: 2.8; }
+  24% { scale: 3.3; }
+  25% { scale: 2.5; }
+  26% { scale: 3.1; }
+  27% { scale: 2.9; }
+  28% { scale: 3.0; }
+  29% { scale: 2.7; }
+  30% { scale: 3.3; }
+  31% { scale: 2.6; }
+  32% { scale: 3.4; }
+  33% { scale: 2.8; }
+  34% { scale: 3.1; }
+  35% { scale: 2.9; }
+  36% { scale: 3.0; }
+  37% { scale: 2.7; }
+  38% { scale: 3.2; }
+  39% { scale: 2.8; }
+  40% { scale: 3.4; }
+  41% { scale: 2.6; }
+  42% { scale: 3.3; }
+  43% { scale: 2.9; }
+  44% { scale: 3.1; }
+  45% { scale: 2.7; }
+  46% { scale: 3.2; }
+  47% { scale: 2.8; }
+  48% { scale: 3.3; }
+  49% { scale: 2.5; }
+  50% { scale: 3.0; }
+  51% { scale: 2.9; }
+  52% { scale: 3.4; }
+  53% { scale: 2.6; }
+  54% { scale: 3.3; }
+  55% { scale: 2.8; }
+  56% { scale: 3.2; }
+  57% { scale: 2.7; }
+  58% { scale: 3.1; }
+  59% { scale: 2.9; }
+  60% { scale: 3.0; }
+  61% { scale: 2.7; }
+  62% { scale: 3.4; }
+  63% { scale: 2.6; }
+  64% { scale: 3.3; }
+  65% { scale: 2.8; }
+  66% { scale: 3.2; }
+  67% { scale: 2.9; }
+  68% { scale: 3.1; }
+  69% { scale: 2.7; }
+  70% { scale: 3.3; }
+  71% { scale: 2.8; }
+  72% { scale: 3.2; }
+  73% { scale: 2.6; }
+  74% { scale: 3.1; }
+  75% { scale: 2.9; }
+  76% { scale: 3.0; }
+  77% { scale: 2.7; }
+  78% { scale: 3.3; }
+  79% { scale: 2.5; }
+  80% { scale: 3.4; }
+  81% { scale: 2.6; }
+  82% { scale: 3.2; }
+  83% { scale: 2.8; }
+  84% { scale: 3.0; }
+  85% { scale: 2.9; }
+  86% { scale: 3.3; }
+  87% { scale: 2.7; }
+  88% { scale: 3.4; }
+  89% { scale: 2.6; }
+  90% { scale: 3.2; }
+  91% { scale: 2.8; }
+  92% { scale: 3.0; }
+  93% { scale: 2.7; }
+  94% { scale: 3.1; }
+  95% { scale: 2.9; }
+  96% { scale: 3.4; }
+  97% { scale: 2.6; }
+  98% { scale: 3.2; }
+  99% { scale: 2.8; }
+  100% { scale: 3; }
+}
+
+.mouse-trail {
+  position: absolute;
+  width: 25px;
+  height: 17.4px;
+  background-color: rgb(68, 255, 0); 
+  border-radius: 50%; 
+  pointer-events: none; 
+  z-index: 999111111111111111119; 
+}
+
+
+
         h1 {
             position: fixed;
             top: 0;
@@ -580,6 +839,23 @@ h4 {
     overflow-y: scroll; 
 }
 
+@keyframes float-text {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(20vw, 20vh); }
+  50% { transform: translate(-10vw, -20vh); }
+  75% { transform: translate(30vw, -30vh); }
+  100% { transform: translate(-20vw, 20vh); }
+}
+
+.floating-text {
+  position: absolute;
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.5); 
+  animation: float-text 10s linear infinite; 
+  z-index: 9999;
+  pointer-events: none; 
+}
+
 .companies-box {
     top: 300px; 
     z-index: 129292828298198119281891891289128982198182891982198218921981989821982191988998219821891298;
@@ -649,6 +925,11 @@ h4 {
   }
 }
 
+.invisible-mode {
+  visibility: hidden;
+}
+
+
 .alarmed-mode-overlay {
   animation: alarm-flash 0.1s infinite;
   position: fixed;
@@ -700,6 +981,27 @@ h4 {
 .ad p {
     font-size: 14px;
     margin: 10px 0 0;
+}
+
+.niga-mode {
+  filter: invert(1);
+  transition: filter 0.1s ease;
+  animation: nigamode-a 10s infinite;
+}
+
+@keyframes nigamode-a{
+  0% {filter: invert(0);}
+  100% {filter: invert(10)}
+}
+
+@keyframes spinached-mode {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinach-mode {
+  animation: spinached-mode 10s linear infinite;
+  transform-origin: center;
 }
 
 .ad img {
@@ -833,6 +1135,10 @@ h4 {
       </label>
       <br />
       <label>
+        <input type="checkbox" id="floating404"/> ERROR
+      </label>
+      <br />
+      <label>
         <input type="checkbox" id="NiaaaaModeUltra" /> ???  
       </label>   
        <br />
@@ -846,11 +1152,50 @@ h4 {
       <label>
         <input type="checkbox" id="TEXTMode" /> This is fine!
       </label>
+      <br />
+      <br />
+      <label> 
+        <input type="checkbox" id="nigaMode" /> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      </label>
+      <br />
+      <label> 
+        <input type="checkbox" id="spinachMode" /> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      </label>
+      <br />
+      <label> 
+        <input type="checkbox" id="potatoMode" /> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" id="floatingForeverMode" /> WEITNWEIOTOERNEORTNORE
+      </label>
+      <label> 
+        <input type="checkbox" id="poopMode" /> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      </label>
+      <label>
+        <input type="checkbox" id="randomFontMode" /> This is fine!
+      </label>
+      <label>
+        <input type="checkbox" id="invisibleMode" /> This is fine!
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" id="trophyMode" /> hehehe
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" id="mouseTrailMode" /> PLEASE EQUIP FOR FREE 1000€ 
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" id="SpecialMode" /> PLEASE EQUIP FOR FREE 1000€ 
+      </label>
     </div>
   </div>
 
 
     <script>
+
 
 
 let visitorCount = 0; 
@@ -953,79 +1298,63 @@ createEarningsCounter();
 
 
 
-
-function scheduleNextPopup() {
-    const randomTime = getRandomTime(5000, 60000);  
-    setTimeout(showPopup, randomTime);  
-}
-        function hideInfo() {
-            document.getElementById('infoBox').style.display = 'none';
-        }
-
-        function hideCompanies() {
-            document.getElementById('companiesBox').style.display = 'none';
-        }
-        function hideMom() {
-          document.getElementById('momBox').style.display = 'none'
-        }
-        function showPopup() {
-            document.getElementById('adPopup').style.display = 'block';
-            scheduleNextPopup(); 
-        }
-        function closeAd(adElement) {
-        adElement.style.display = 'none';
+function getRandomTime(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-
-    function scheduleNextPopup() {
-    const randomTime = getRandomTime(5000, 60000);  
-    setTimeout(showPopup, randomTime);
+    function getRandomTime(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function getRandomTime(min, max) {
-    return Math.random() * (max - min) + min;
+function isSpecialModeActive() {
+  return document.getElementById('SpecialMode').checked;
 }
 
 function scheduleNextPopup() {
-    const randomTime = getRandomTime(5000, 60000);  
-    setTimeout(showPopup, randomTime);  
-}
+  let randomTime;
+  if (isSpecialModeActive()) {
+    randomTime = getRandomTime(30, 100); 
+  } else {
+    randomTime = getRandomTime(5000, 60000); 
+  }
 
-function getRandomTime(min, max) {
-    return Math.random() * (max - min) + min;  
+  setTimeout(showPopup, randomTime);
 }
 
 function showPopup() {
-    const randomAd = items[Math.floor(Math.random() * items.length)];
-    const adDiv = document.createElement('div');
-    adDiv.classList.add('ad');
-    adDiv.style.backgroundColor = randomAd.colorScheme.bg;
-    adDiv.style.color = randomAd.colorScheme.color;
-    adDiv.style.border = `2px solid ${randomAd.colorScheme.border}`;
+  const randomAd = items[Math.floor(Math.random() * items.length)];
 
-    const randomTop = Math.floor(Math.random() * (window.innerHeight - 200)); 
-    const randomLeft = Math.floor(Math.random() * (window.innerWidth - 200)); 
-    adDiv.style.top = `${randomTop}px`;
-    adDiv.style.left = `${randomLeft}px`;
+  const adDiv = document.createElement('div');
+  adDiv.classList.add('ad');
+  adDiv.style.backgroundColor = randomAd.colorScheme.bg;
+  adDiv.style.color = randomAd.colorScheme.color;
+  adDiv.style.border = `2px solid ${randomAd.colorScheme.border}`;
 
-    adDiv.innerHTML = `
-        <h2>${randomAd.title}</h2>
-        <p>${randomAd.content}</p>
-        ${randomAd.image ? `<img src="${randomAd.image}" alt="${randomAd.title}" />` : ''}
-        <button class="close-btn" onclick="closeAd(this.parentElement)">Close</button>
-    `;
+  const randomTop = Math.floor(Math.random() * (window.innerHeight - 200));
+  const randomLeft = Math.floor(Math.random() * (window.innerWidth - 200));
+  adDiv.style.top = `${randomTop}px`;
+  adDiv.style.left = `${randomLeft}px`;
 
-    const adsContainer = document.getElementById('ads-container');
-    if (adsContainer) {
-        adsContainer.appendChild(adDiv);  
-    }
+  adDiv.innerHTML = `
+    <h2>${randomAd.title}</h2>
+    <p>${randomAd.content}</p>
+    ${randomAd.image ? `<img src="${randomAd.image}" alt="${randomAd.title}" />` : ''}
+    <button class="close-btn" onclick="closeAd(this.parentElement)">Close</button>
+  `;
 
-    scheduleNextPopup();  
+  const adsContainer = document.getElementById('ads-container');
+  if (adsContainer) {
+    adsContainer.appendChild(adDiv);
+  }
+
+  scheduleNextPopup();  
 }
 
 function closeAd(ad) {
-    ad.remove();  
+  ad.remove();  
 }
+
+scheduleNextPopup();
 
 const items = [
     { title: 'Special Offer', content: "Don't miss out on this amazing offer!", colorScheme: { bg: '#ff00ff', color: '#00ff00', border: '#0000ff' } },
@@ -1364,6 +1693,15 @@ document.getElementById('textMode').addEventListener('change', (e) => {
 
     alert("Text Mode is now permanent!");
   }
+
+  document.getElementById('invisibleMode').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    document.body.classList.add('invisible-mode');
+  } else {
+    document.body.classList.remove('invisible-mode');
+  }
+});
+
 });
 function blurText() {
   const textElements = document.querySelectorAll('body, p, h1, h2, h3, h4, h5, h6, div, span, a');
@@ -1440,6 +1778,8 @@ document.getElementById('NiaaaaModeUltra').addEventListener('change', (e) => {
   }
 });
 
+// annsnananannan na na na na na na nananan booboo nana booboo na na na boo boo
+
 
 document.getElementById('alarmMode').addEventListener('change', (e) => {
   if (e.target.checked) {
@@ -1455,6 +1795,174 @@ document.getElementById('shalalaMode').addEventListener('change', (e) => {
     document.body.classList.remove('shalala');
   }
 });
+
+
+const randomTexts = [
+  "Blah blah blah!",
+  "Shooting stars in the sky.",
+  "Is this real life?",
+  "Help, I'm stuck in a website!",
+  "Bananas are purple.",
+  "Blah blah blah!",
+  "Shooting stars in the sky.",
+  "Is this real life?",
+  "Help, I'm stuck in a website!",
+  "Bananas are purple.",
+  "Why is the sky green?",
+  "Is it cake?",
+  "404 Error: Not Found.",
+  "Random words are fun!",
+  "Faster than a cheetah!",
+  "Wibble wobble.",
+  "Quantum computers are cool!",
+  "Can you read this?",
+  "Spaghetti is underrated.",
+  "Flying pigs everywhere!",
+  "This is a glitch!",
+  "Welcome to chaos!",
+  "Go to sleep.",
+  "Are we in the Matrix?",
+  "All your base are belong to us!",
+  "The moon is made of cheese.",
+  "I can hear colors.",
+  "Giraffes can't jump.",
+  "Time is a flat circle.",
+  "Is it raining? Or is it just me?",
+  "Aliens are watching us right now.",
+  "Your shoes are untied.",
+  "Why did the chicken cross the road? To get to the other side.",
+  "Clouds taste like cotton candy.",
+  "Caffeine is life.",
+  "The toaster is secretly a time machine.",
+  "I found the meaning of life in a cereal box.",
+  "Octopuses are smarter than they look.",
+  "Sharks are just misunderstood puppies.",
+  "Is this the real life, or just fantasy?",
+  "You’re a wizard, Harry!",
+  "Can you touch the sky?",
+  "Flap your wings and pretend you're a bird.",
+  "Does pineapple belong on pizza? That's the real question.",
+  "I want to ride a unicorn into space.",
+  "The cows have taken over the farm!",
+  "Bacon is the answer to all your problems.",
+  "It's just a phase, don't worry.",
+  "Every time you blink, you lose a second of your life.",
+  "I bet the internet is made of spaghetti.",
+  "Squirrels are secretly ninjas.",
+  "Gotta catch 'em all!",
+  "Do robots dream of electric sheep?",
+  "Do we control the memes, or do they control us?",
+  "The real question is, are we the glitch?",
+  "If I had a dollar for every time I said 'huh?'...",
+  "Why are there no flying cars yet?",
+  "I speak fluent emoji.",
+  "Life's better with cupcakes.",
+  "Do you want fries with that?",
+  "Why did the computer go to the doctor? It had a virus!",
+  "My dog is my therapist.",
+  "Cats rule the internet.",
+  "Sometimes I think my coffee is alive.",
+  "How do you do the moonwalk?",
+  "If you can't say something nice, say it in a meme.",
+  "Am I the only one who talks to Siri like she's my best friend?",
+  "My plants are thriving. Or are they?",
+  "I like big data and I cannot lie.",
+  "One day, we'll all be living in the cloud.",
+  "What is the meaning of life? Probably a YouTube tutorial.",
+  "Why do socks always disappear in the dryer?",
+  "I need more pizza in my life.",
+  "Why is the number 7 lucky?",
+  "You have a 99% chance of meeting a cat today.",
+  "I don’t need sleep, I need more coffee.",
+  "Are we dreaming right now?",
+  "Don't go chasing waterfalls, go after memes!",
+  "The Wi-Fi is down, and so is my soul.",
+  "Unicorns are real, you just have to believe.",
+  "Just waiting for the robots to take over already.",
+  "When life gives you lemons, make a lemonade meme.",
+  "Did someone say tacos?",
+  "The floor is lava!",
+  "Do chickens think in chicken?",
+  "There’s no such thing as too many pillows.",
+  "Could you imagine a world without pizza?",
+  "My pet rock is my best friend.",
+  "I’m the captain of the spaceship to Pluto.",
+  "Llamas are the new cats.",
+  "Squirrels, but make it fashionable.",
+  "Can I have an extra life?",
+  "Just keep swimming!",
+  "The chair you're sitting in has feelings.",
+  "If I had a magic wand...",
+  "Coffee makes me happy.",
+  "There's an alien behind you!",
+  "Can you hear the sound of the universe?",
+  "I don’t always wear socks, but when I do, they match.",
+  "This is my happy place.",
+  "Time flies when you're having fun… or scrolling on Twitter.",
+  "I swear, my keyboard has a mind of its own.",
+  "One more episode… then I’ll sleep.",
+  "What if trees could talk?",
+  "Ice cream is always the answer.",
+  "Does this shirt make me look like a time traveler?",
+  "Life is like a video game, you just have to level up.",
+  "There’s no such thing as too much glitter.",
+  "Are we there yet?",
+  "Sometimes, I talk to my plants.",
+  "Be the reason someone smiles today.",
+  "I wonder what’s on the other side of the rainbow.",
+  "Can I have a side of nachos with my burrito?",
+  "How many cookies can I eat before it's considered a problem?",
+  "Is it possible to have too many books?",
+  "What’s the secret to life? A good meme collection.",
+  "I hope you find the last piece of the puzzle.",
+  "I need more sparkles in my life.",
+  "When the Wi-Fi goes down, so does the mood.",
+  "Just call me the meme master.",
+  "I wonder if the ocean has Wi-Fi.",
+  "I don’t believe in normal. Normal is overrated.",
+  "I think I lost my marbles, but I’ll find them.",
+  "Why is the grass always greener on the other side?",
+  "All your base are belong to us!"
+];
+
+function generateRandomText() {
+  const randomIndex = Math.floor(Math.random() * randomTexts.length);
+  const text = randomTexts[randomIndex];
+  const newTextElement = document.createElement('div');
+    newTextElement.classList.add('floating-text');
+  newTextElement.innerText = text;
+  newTextElement.style.top = `${Math.random() * 100}vh`;
+  newTextElement.style.left = `${Math.random() * 100}vw`;
+  newTextElement.style.animationDelay = `${Math.random() * 5}s`; 
+
+  document.body.appendChild(newTextElement);
+}
+
+document.getElementById('floatingForeverMode').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    setInterval(generateRandomText, 1000);
+  } else {
+    const floatingTexts = document.querySelectorAll('.floating-text');
+    floatingTexts.forEach(text => text.remove());
+  }
+});
+
+
+document.getElementById('poopMode').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    const gifElement = document.createElement('img');
+    gifElement.src = 'https://media1.tenor.com/m/qBYH22fSZSAAAAAd/toilet-spin.gif'; 
+    gifElement.classList.add('center-gif');
+    gifElement.id = 'centeredGif'; 
+    document.body.appendChild(gifElement);
+  } else {
+    const gifElement = document.getElementById('centeredGif');
+    if (gifElement) {
+      gifElement.remove();
+    }
+  }
+});
+
 document.getElementById('alarmMode').addEventListener('change', (e) => {
   if (e.target.checked) {
     document.body.classList.add('alarm-mode');
@@ -1470,12 +1978,84 @@ document.getElementById('alarmMode').addEventListener('change', (e) => {
     alert("Alarmed Mode is now permanent and cannot be disabled.");
   }
 });
-
+document.getElementById('randomFontMode').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    document.body.classList.add('random-font');
+  } else {
+    document.body.classList.remove('random-font');
+  }
+});
 document.getElementById('flippedMode').addEventListener('change', (e) => {
   if (e.target.checked) {
     document.body.classList.add('flipped-mode');
   } else {
     document.body.classList.remove('flipped-mode');
+  }
+});
+
+document.getElementById('nigaMode').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    document.body.classList.add('niga-mode');
+  } else {
+    document.body.classList.remove('niga-mode');
+  }
+});
+
+document.getElementById('spinachMode').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    document.body.classList.add('spinach-mode');
+  } else {
+    document.body.classList.remove('spinach-mode');
+  }
+});
+// DevLog: PLEASE KILL ME
+function createMouseTrail(e) {
+  const trail = document.createElement('div');
+  trail.classList.add('mouse-trail');
+    trail.style.left = `${e.pageX - 5}px`;  
+  trail.style.top = `${e.pageY - 5}px`;  
+  document.body.appendChild(trail);
+}
+
+document.getElementById('mouseTrailMode').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    document.body.addEventListener('mousemove', createMouseTrail);
+  } else {
+    document.body.removeEventListener('mousemove', createMouseTrail);
+  }
+});
+
+
+
+document.getElementById('potatoMode').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    document.body.classList.add('potato-mode');
+  } else {
+    document.body.classList.remove('potato-mode');
+  }
+});
+function createFloating404() {
+  const div = document.createElement('div');
+  div.innerText = '404 Not Found';
+  div.style.position = 'absolute';
+  div.style.fontSize = '30px';
+  div.style.color = 'red';
+  div.style.zIndex = '10000';
+  div.style.top = Math.random() * 100 + 'vh';
+  div.style.left = Math.random() * 100 + 'vw';
+  div.style.transition = 'all 1s ease';
+
+  document.body.appendChild(div);
+
+  setInterval(() => {
+    div.style.top = Math.random() * 100 + 'vh';
+    div.style.left = Math.random() * 100 + 'vw';
+  }, 300); 
+}
+
+document.getElementById('floating404').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    createFloating404();
   }
 });
 
@@ -1488,6 +2068,22 @@ document.getElementById('tvStaticMode').addEventListener('change', (e) => {
     e.target.disabled = true;
     alert("Stay on the website for 2 hours for a surprise!!!!!!!!.");
   }
+
+  function addTrophy() {
+  const trophy = document.createElement('img');
+  trophy.src = 'https://i.pinimg.com/originals/9f/00/98/9f00989d026f532a8d6aaff62760655b.png'; 
+  trophy.style.position = 'absolute';
+  trophy.style.top = Math.random() * 100 + 'vh';
+  trophy.style.left = Math.random() * 100 + 'vw';
+  trophy.style.zIndex = '9911111111111111111111111111111111111111111111111111999';
+  document.body.appendChild(trophy);
+}
+
+document.getElementById('trophyMode').addEventListener('change', (e) => {
+  if (e.target.checked) {
+    setInterval(addTrophy, 500); 
+  }
+});
 });
 </script>
 </body>
